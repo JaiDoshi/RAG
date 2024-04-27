@@ -87,7 +87,7 @@ def trim_predictions_to_max_token_length(prediction):
 
 def generate_predictions(dataset_path, participant_model):    
     predictions = []
-    with bz2.open(DATASET_PATH, "rt") as bz2_file:
+    with bz2.open('data/processed_data.jsonl', "rt") as bz2_file:
         for line in tqdm(bz2_file, desc="Generating Predictions"):
             data = json.loads(line)
             
@@ -111,56 +111,6 @@ def generate_predictions(dataset_path, participant_model):
     return predictions
 
 
-def evaluate_predictions(predictions, evaluation_model_name, openai_client):
-    n_miss, n_correct, n_correct_exact = 0, 0, 0
-    system_message = get_system_message()
-
-    for prediction_dict in tqdm(predictions, total=len(predictions), desc="Evaluating Predictions"):
-        query, ground_truth, prediction = (
-            prediction_dict["query"],
-            prediction_dict["ground_truth"],
-            prediction_dict["prediction"],
-        )
-
-        messages = [
-            {"role": "system", "content": system_message},
-            {
-                "role": "user",
-                "content": f"Question: {query}\n Ground truth: {ground_truth}\n Prediction: {prediction}\n",
-            },
-        ]
-        if prediction == "i don't know" or prediction == "i don't know.":
-            n_miss += 1
-            continue
-        if prediction == ground_truth:
-            n_correct_exact += 1
-            n_correct += 1
-            continue
-
-        response = attempt_api_call(
-            openai_client, evaluation_model_name, messages
-        )
-        if response:
-            log_response(messages, response)
-            eval_res = parse_response(response)
-            if eval_res == 1:
-                n_correct += 1
-
-    n = len(predictions)
-    results = {
-        "score": (2 * n_correct + n_miss) / n - 1,
-        "exact_accuracy": n_correct_exact / n,
-        "accuracy": n_correct / n,
-        "hallucination": (n - n_correct - n_miss) / n,
-        "missing": n_miss / n,
-        "n_miss": n_miss,
-        "n_correct": n_correct,
-        "n_correct_exact": n_correct_exact,
-        "total": n,
-    }
-    logger.info(results)
-    return results
-
 
 if __name__ == "__main__":
     from models.user_config import UserModel
@@ -173,9 +123,6 @@ if __name__ == "__main__":
     # Generate predictions
     participant_model = UserModel()
     predictions = generate_predictions(DATASET_PATH, participant_model)
+    print(predictions)
 
-    # Evaluate Predictions
-    openai_client = OpenAI()
-    evaluation_results = evaluate_predictions(
-        predictions, EVALUATION_MODEL_NAME, openai_client
-    )
+

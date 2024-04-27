@@ -1,3 +1,5 @@
 .vscode
 __pycache__
-api_responses/*.json
+.DS_Store
+models/meta-llama/*
+models/sentence-transformers/*

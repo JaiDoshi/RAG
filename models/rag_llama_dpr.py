@@ -2,17 +2,26 @@ import os
 from typing import Dict, List
 
 import numpy as np
+import faiss
 import torch
 from blingfire import text_to_sentences_and_offsets
 from bs4 import BeautifulSoup
 from models.utils import trim_predictions_to_max_token_length
 from sentence_transformers import SentenceTransformer
+from functools import partial
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
     pipeline,
+    DPRContextEncoder,
+    DPRContextEncoderTokenizerFast,
+    HfArgumentParser,
+    RagRetriever,
+    RagSequenceForGeneration,
+    RagTokenizer,
 )
+from datasets import Dataset, Features, Sequence, Value
 
 ######################################################################################################
 ######################################################################################################
@@ -40,6 +49,7 @@ from transformers import (
 # **Note**: This environment variable will not be available for Task 1 evaluations.
 CRAG_MOCK_API_URL = os.getenv("CRAG_MOCK_API_URL", "http://localhost:8000")
 
+device = "cuda"
 
 class RAGModel:
     def __init__(self):
@@ -52,7 +62,7 @@ class RAGModel:
         """
         # Load a sentence transformer model optimized for sentence embeddings, using CUDA if available.
         self.sentence_model = SentenceTransformer(
-            "sentence-transformers/all-MiniLM-L6-v2", device="cuda"
+            "sentence-transformers/all-MiniLM-L6-v2", device=device
         )
 
         # Define the number of context sentences to consider for generating an answer.
@@ -72,7 +82,7 @@ class RAGModel:
         """
 
         # Configuration for model quantization to improve performance, using 4-bit precision.
-        bnb_config = BitsAndBytesConfig(
+        self.bnb_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_compute_dtype=torch.float16,
             bnb_4bit_quant_type="nf4",
@@ -80,26 +90,34 @@ class RAGModel:
         )
 
         # Specify the large language model to be used.
-        model_name = "meta-llama/Llama-2-7b-chat-hf"
+        # model_name = "meta-llama/Llama-2-7b-chat-hf"
 
-        # Load the tokenizer for the specified model.
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        # # Load the tokenizer for the specified model.
+        # self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-        # Load the large language model with the specified quantization configuration.
-        self.llm = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            device_map="auto",
-           # quantization_config=bnb_config,
-            torch_dtype=torch.float16,
-        )
+        # # Load the large language model with the specified quantization configuration.
+        # self.llm = AutoModelForCausalLM.from_pretrained(
+        #     model_name,
+        #     device_map="auto",
+        #    # quantization_config=bnb_config,
+        #     torch_dtype=torch.float16,
+        # )
 
-        # Initialize a text generation pipeline with the loaded model and tokenizer.
-        self.generation_pipe = pipeline(
-            task="text-generation",
-            model=self.llm,
-            tokenizer=self.tokenizer,
-            max_new_tokens=10,
-        )
+        # # Initialize a text generation pipeline with the loaded model and tokenizer.
+        # self.generation_pipe = pipeline(
+        #     task="text-generation",
+        #     model=self.llm,
+        #     tokenizer=self.tokenizer,
+        #     max_new_tokens=75,
+        # )
+
+    def embed(self, documents: dict, ctx_encoder: DPRContextEncoder, ctx_tokenizer: DPRContextEncoderTokenizerFast) -> dict:
+        """Compute the DPR embeddings of document passages"""
+        input_ids = ctx_tokenizer(
+            documents["title"], documents["text"], truncation=True, padding="longest", return_tensors="pt"
+        )["input_ids"]
+        embeddings = ctx_encoder(input_ids.to(device=device), return_dict=True).pooler_output
+        return {"embeddings": embeddings.detach().cpu().numpy()}
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:
         """
@@ -122,6 +140,7 @@ class RAGModel:
 
         # Initialize a list to hold all extracted sentences from the search results.
         all_sentences = []
+        titles = []
 
         # Process each HTML text from the search results to extract text content.
         for html_text in search_results:
@@ -133,29 +152,53 @@ class RAGModel:
             if len(text) > 0:
                 # Convert the text into sentences and extract their offsets.
                 offsets = text_to_sentences_and_offsets(text)[1]
+                doc = ""
                 for ofs in offsets:
                     # Extract each sentence based on its offset and limit its length.
                     sentence = text[ofs[0] : ofs[1]]
-                    all_sentences.append(
-                        sentence[: self.max_ctx_sentence_length]
-                    )
+                    # all_sentences.append(
+                    #     sentence[:self.max_ctx_sentence_length]
+                    # )
+                    doc += " " + sentence[:self.max_ctx_sentence_length]
+                all_sentences.append(doc)
+                titles.append("")
             else:
                 # If no text is extracted, add an empty string as a placeholder.
                 all_sentences.append("")
+                titles.append("")
 
-        # Generate embeddings for all sentences and the query.
-        all_embeddings = self.sentence_model.encode(
-            all_sentences, normalize_embeddings=True
+  
+        dataset = Dataset.from_dict({"title": titles, "text": all_sentences})
+
+        ctx_encoder = DPRContextEncoder.from_pretrained("facebook/dpr-ctx_encoder-multiset-base").to(device=device)
+        ctx_tokenizer = DPRContextEncoderTokenizerFast.from_pretrained("facebook/dpr-ctx_encoder-multiset-base")
+        new_features = Features(
+            {"text": Value("string"), "title": Value("string"), "embeddings": Sequence(Value("float32"))}
+        )  # optional, save as float32 instead of float64 to save space
+        dataset = dataset.map(
+            partial(self.embed, ctx_encoder=ctx_encoder, ctx_tokenizer=ctx_tokenizer),
+            batched=True,
+            batch_size=16,
+            features=new_features,
         )
-        query_embedding = self.sentence_model.encode(
-            query, normalize_embeddings=True
-        )[None, :]
 
-        # Calculate cosine similarity between query and sentence embeddings, and select the top sentences.
-        cosine_scores = (all_embeddings * query_embedding).sum(1)
-        top_sentences = np.array(all_sentences)[
-            (-cosine_scores).argsort()[: self.num_context]
-        ]
+        # Let's use the Faiss implementation of HNSW for fast approximate nearest neighbor search
+        index = faiss.IndexHNSWFlat(768, 128, faiss.METRIC_INNER_PRODUCT)
+        dataset.add_faiss_index("embeddings", custom_index=index)
+
+        retriever = RagRetriever.from_pretrained(
+        "facebook/rag-sequence-nq", index_name="custom", indexed_dataset=dataset
+         )
+        model = RagSequenceForGeneration.from_pretrained("facebook/rag-sequence-nq", retriever=retriever)
+        tokenizer = RagTokenizer.from_pretrained("facebook/rag-sequence-nq")
+
+        input_ids = tokenizer.question_encoder(query, return_tensors="pt")["input_ids"]
+        generated = model.generate(input_ids, max_new_tokens=75)
+        generated_string = tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
+        print(query)
+        print(generated_string)
+        return
+        
 
         # Format the top sentences as references in the model's prompt template.
         references = ""
@@ -167,6 +210,8 @@ class RAGModel:
         final_prompt = self.prompt_template.format(
             query=query, references=references
         )
+
+        print(final_prompt)
 
         # Generate an answer using the formatted prompt.
         result = self.generation_pipe(final_prompt)
@@ -180,6 +225,8 @@ class RAGModel:
             answer = "I don't know"
 
         # Trim the prediction to a maximum of 75 tokens (this function needs to be defined).
+        return answer
+        
         trimmed_answer = trim_predictions_to_max_token_length(answer)
 
         return trimmed_answer

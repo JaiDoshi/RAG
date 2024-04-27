@@ -4,6 +4,17 @@ from typing import Dict, List
 import numpy as np
 import torch
 from blingfire import text_to_sentences_and_offsets
+from haystack.document_stores import FAISSDocumentStore, ElasticsearchDocumentStore
+from haystack.document_stores import InMemoryDocumentStore
+from haystack.nodes import DensePassageRetriever, PromptNode
+from haystack.nodes import EmbeddingRetriever, TfidfRetriever
+from haystack import Document
+from haystack.pipelines import Pipeline
+from haystack.nodes import FARMReader, TransformersReader, TableReader
+from haystack.pipelines import ExtractiveQAPipeline
+from haystack.utils import print_answers
+#from haystack.utils import launch_milvus
+#from haystack.document_stores import MilvusDocumentStore
 from bs4 import BeautifulSoup
 from models.utils import trim_predictions_to_max_token_length
 from sentence_transformers import SentenceTransformer
@@ -13,6 +24,8 @@ from transformers import (
     BitsAndBytesConfig,
     pipeline,
 )
+
+
 
 ######################################################################################################
 ######################################################################################################
@@ -51,55 +64,55 @@ class RAGModel:
         model parameters and templates for generating answers.
         """
         # Load a sentence transformer model optimized for sentence embeddings, using CUDA if available.
-        self.sentence_model = SentenceTransformer(
-            "sentence-transformers/all-MiniLM-L6-v2", device="cuda"
-        )
+        # self.sentence_model = SentenceTransformer(
+        #     "sentence-transformers/all-MiniLM-L6-v2", device="cuda"
+        # )
 
-        # Define the number of context sentences to consider for generating an answer.
-        self.num_context = 10
-        # Set the maximum length for each context sentence in characters.
+        # # Define the number of context sentences to consider for generating an answer.
+        # self.num_context = 10
+        # # Set the maximum length for each context sentence in characters.
         self.max_ctx_sentence_length = 1000
 
-        # Template for formatting the input to the language model, including placeholders for the question and references.
-        self.prompt_template = """
-        ### Question
-        {query}
+        # # Template for formatting the input to the language model, including placeholders for the question and references.
+        # self.prompt_template = """
+        # ### Question
+        # {query}
 
-        ### References 
-        {references}
+        # ### References 
+        # {references}
 
-        ### Answer
-        """
+        # ### Answer
+        # """
 
-        # Configuration for model quantization to improve performance, using 4-bit precision.
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_use_double_quant=False,
-        )
+        # # Configuration for model quantization to improve performance, using 4-bit precision.
+        # bnb_config = BitsAndBytesConfig(
+        #     load_in_4bit=True,
+        #     bnb_4bit_compute_dtype=torch.float16,
+        #     bnb_4bit_quant_type="nf4",
+        #     bnb_4bit_use_double_quant=False,
+        # )
 
-        # Specify the large language model to be used.
-        model_name = "meta-llama/Llama-2-7b-chat-hf"
+        # # Specify the large language model to be used.
+        # model_name = "meta-llama/Llama-2-7b-chat-hf"
 
-        # Load the tokenizer for the specified model.
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        # # Load the tokenizer for the specified model.
+        # self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-        # Load the large language model with the specified quantization configuration.
-        self.llm = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            device_map="auto",
-           # quantization_config=bnb_config,
-            torch_dtype=torch.float16,
-        )
+        # # Load the large language model with the specified quantization configuration.
+        # self.llm = AutoModelForCausalLM.from_pretrained(
+        #     model_name,
+        #     device_map="auto",
+        #    # quantization_config=bnb_config,
+        #     torch_dtype=torch.float16,
+        # )
 
-        # Initialize a text generation pipeline with the loaded model and tokenizer.
-        self.generation_pipe = pipeline(
-            task="text-generation",
-            model=self.llm,
-            tokenizer=self.tokenizer,
-            max_new_tokens=10,
-        )
+        # # Initialize a text generation pipeline with the loaded model and tokenizer.
+        # self.generation_pipe = pipeline(
+        #     task="text-generation",
+        #     model=self.llm,
+        #     tokenizer=self.tokenizer,
+        #     max_new_tokens=75,
+        # )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:
         """
@@ -143,6 +156,83 @@ class RAGModel:
                 # If no text is extracted, add an empty string as a placeholder.
                 all_sentences.append("")
 
+
+        # if os.path.exists('faiss_document_store.db'):
+        #     document_store = FAISSDocumentStore.load('faiss_document_store.db')
+        # else:
+        document_store = FAISSDocumentStore(faiss_index_factory_str="Flat", return_embedding=True, sql_url="sqlite://", vector_dim=384)
+        #launch_milvus()
+        #document_store = MilvusDocumentStore()
+    #     dicts = [
+    # {
+    #     'content': "Voldermort died in the hands of Snape",
+    #     'meta': {'name': 'doc1'}
+    # },
+    #  {
+    #     'content': "Severus Snape killed Tom Riddle aka Lord Voldermort",
+    #     'meta': {'name': 'doc2'}
+    # },
+    #     ]
+        dicts = []
+        cnt = 0
+        for sentence in all_sentences:
+            cnt +=1
+            dicts.append(
+                {
+                    'content': sentence,
+                    'meta': {'name': cnt}
+                }
+            )
+
+        # external_doc = [Document(content="Voldermort died in the hands of Snape")
+        #                 , Document(content = "Severus Snape killed Tom Riddle aka Lord Voldermort")]
+
+
+        # Initialize DPR Retriever to encode documents, encode question and query documents
+    #     retriever = DensePassageRetriever(
+    #     document_store=document_store,
+    #     query_embedding_model="facebook/dpr-question_encoder-single-nq-base",
+    #     passage_embedding_model="facebook/dpr-ctx_encoder-single-nq-base",
+    #     max_seq_len_query=64,
+    #     max_seq_len_passage=256,
+    #     batch_size=16,
+    #     use_gpu=True,
+    #     embed_title=True,
+    #     use_fast_tokenizers=True
+    # )
+        retriever = TfidfRetriever(
+    document_store=document_store
+    )
+
+        document_store.delete_documents()
+        document_store.write_documents(dicts)   
+
+        #document_store.update_embeddings(retriever=retriever)
+
+        reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=True)
+        pipe = ExtractiveQAPipeline(reader, retriever)
+        prediction = pipe.run(
+    query=query, params={"Retriever": {"top_k": 10}, "Reader": {"top_k": 5}}
+        )   
+        #print(prediction)
+
+        print_answers(prediction, details="minimum")
+
+        return
+
+
+        prompt_node = PromptNode()
+
+        pipe = Pipeline()
+        pipe.add_node(component=retriever, name="Retriever", inputs=["Query"])
+        pipe.add_node(component=prompt_node, name="prompt_node", inputs=["Retriever"])
+
+        output = pipe.run(query=query)
+
+        print(output)
+
+        return
+
         # Generate embeddings for all sentences and the query.
         all_embeddings = self.sentence_model.encode(
             all_sentences, normalize_embeddings=True
@@ -168,6 +258,8 @@ class RAGModel:
             query=query, references=references
         )
 
+        print(final_prompt)
+
         # Generate an answer using the formatted prompt.
         result = self.generation_pipe(final_prompt)
         result = result[0]["generated_text"]
@@ -180,6 +272,9 @@ class RAGModel:
             answer = "I don't know"
 
         # Trim the prediction to a maximum of 75 tokens (this function needs to be defined).
+        return answer
+        
         trimmed_answer = trim_predictions_to_max_token_length(answer)
 
         return trimmed_answer
+

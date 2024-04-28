@@ -1,0 +1,86 @@
+query,domain,question_type,ground_truth,prediction
+which player has the most career assists in the nba among players who have never been named to an all-star game?,sports,simple_w_condition,"andre miller has the most career assists in the nba among players who have never been named to an all-star game, with 8,524 assists.",andre miller
+what are the names of kris jenner's children?,open,set,"kourtney kardashian barker, kim kardashian, khloé kardashian, rob kardashian, kendall jenner, and kylie jenner","kourtney, kim, khloe, rob, kendall, and kylie."
+what is the largest animal found in europe?,open,simple_w_condition,the largest animal found in europe is the european bison.,european bison
+what's the date of after 7's last song/album?,music,simple,1997-03-11,"there is no mention of ""after 7"" in the given references, so there is no answer to the question."
+what's the name of the movie that received the oscar for the best documentary feature film in 1995?,movie,simple,maya lin: a strong clear vision,"""anne frank remembered"""
+"which movie won the academy award for best picture in 2018, categorized under the fantasy genre?",movie,simple_w_condition,the shape of water,the shape of water (2017)
+when did one for all start performing together?,music,simple,1993,"december 18, 2011."
+how many points did darius miles get for free throws in the game on 2000-11-02?,sports,aggregation,5,the answer is not available in the given references.
+what are the top 3 tech stocks that rise in value in january 2024,finance,set,"top 3 tech stocks that rise in value in january 2024 are nvidia, oracle and netflix","ai, nmr, eu"
+"which musical tempos are people streaming the most, hip-hop or country songs?",music,comparison,hip-hop,hip-hop songs.
+how many instagram followers do the top three most followed footballers have on average?,open,post-processing,~447.33 million followers,"241, 44.2, 42.4"
+what's the latest film that walt becker has directed?,movie,simple_w_condition,clifford the big red dog,2021
+"for the fall of saigon, can you tell me who was the main director?",movie,simple,michael dutfield,walter j. boyne
+when was the oldest company in the dow jones added to the index?,finance,multi-hop,"the oldest company in the dow jones, procter & gamble, was added on may 6, 1932.",1896
+"which is a better investment, gold or silver, when considering long-term return?",finance,comparison,gold,gold.
+what's the name of nashville's hockey team?,sports,simple,nashville predators,nashville predators
+how many animated movies has reese witherspoon been in?,open,post-processing,reese witherspoon has been in 4 animated movies.,0
+which player took home grand slam championship in 2017?,sports,simple_w_condition,rafael nadal won his 16th grand slam title at the 2017 u.s. open,serena williams
+which country is the largest gold producer?,open,aggregation,china,china.
+what was the total value of all initial public offerings in the americas for the technology sector in 2022?,finance,simple_w_condition,the total value of all ipos in the americas for the technology sector was $1.6 billion in 2022.,181
+how many companies have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissions?,finance,aggregation,"there are many companies that have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissons, such as microsoft, siemens and amazon.",none.
+what is the largest lake in the us?,open,simple_w_condition,lake superior,lake superior
+when is rihanna planning to launch her new upcoming podcast,open,false_premise,invalid question,there is no information provided about rihanna planning to launch a new podcast. the references only discuss her music and album releases.
+how much is income tax in california?,finance,simple,the state income tax rates range from 1% to 12.3%,1% to 13.3%
+"who has had more number one hits on the us billboard dance/electronic songs chart, calvin harris or the chainsmokers?",music,comparison,"the chainsmokers have had more number one hits on the us billboard dance/electronic songs chart than calvin harris, with 6 number one hits compared to harris' 6.",calvin harris.
+what is the name of priyanka chopra's fashion line?,open,false_premise,invalid question,priyanka chopra does not have a fashion line.
+which players have scored over 200 goals in the epl?,sports,set,"alan shearer, harry kane, and wayne rooney have all won scored over 200 goals in the epl.","alan shearer, wayne rooney"
+"in the span of 2021, orlando magic won how many of their games?",sports,aggregation,25,2021
+on the most recent friday what was the open price of gfi?,finance,simple,$12.52,$13.18
+is the price of meta stock higher or lower than it was at the yearly open?,finance,comparison,higher,lower
+"who has won more atp singles titles, roger federer or rafael nadal?",sports,comparison,"rafael nadal has won more atp singles titles than roger federer, with 86 titles compared to federer's 82.",roger federer.
+in which year was 10 magazine (british magazine) launched?,open,simple,2001,1953
+"price change of advanced micro devices on december 25, 2023, compared to the closing price on the previous trading day?",finance,false_premise,invalid question,"there is no information provided about the price change of advanced micro devices (amd) on december 25, 2023, compared to the closing price on the previous trading day."
+who did the kansas city chiefs beat in the 2023-2024 playoffs?,sports,set,"miami dolphins, buffalo bills, baltimore ravens, san franciso 49ers",the kansas city chiefs beat the san francisco 49ers in super bowl 58.
+can i make sashimi with slow cookers?,open,simple,no,no.
+how many years has the band radiohead been active for?,music,aggregation,"radiohead has been active for 39 years, since 1985.",30 years
+how many music videos has the band radiohead released?,music,aggregation,radiohead has released a total of 51 music videos.,no music videos are mentioned in the given references.
+"during the 2022-12 season, did  chicago bulls score more total points in games than milwaukee bucks?",sports,comparison,true,yes
+what is the price of bitcoin when it launch in 2015?,finance,false_premise,invalid question,bitcoin did not launch in 2015.
+what are the names of all the movies in the the godfather franchise?,movie,set,"the names of the movies in the the godfather franchise are ""the godfather"", ""the godfather part ii"", and ""the godfather part iii"".","the godfather, the godfather part ii, the godfather part iii, the godfather, coda: the death of michael corleone"
+how many godzilla movies millie bobby brown has been in,open,aggregation,2,2
+how did the nasdaq composite index perform the year of the covid crash?,finance,multi-hop,+43.64%,the nasdaq composite dropped 39% in 2020 as a result of the covid-19 pandemic.
+what movies did emilia clarke play in last 5 years,open,set,"the pod generation, last christmas, above suspicion","2016: me before you
+2017: their finest
+2018: solo: a star wars story
+2019: last christmas
+2020: the christmas chronicles part two
+2022: the pod generation"
+on which days did the bq stock closes lower last week?,finance,set,"2024-02-12, 2024-02-13, 2024-02-15, 2024-02-16","monday, february 26"
+how much does a super bowl ad cost?,sports,simple,~$7 million for 30 seconds of ad time.,$5.6 million.
+"what album did bad bunny release in 2022, which included the songs ""moscow mule"" and ""party""?",music,simple_w_condition,"bad bunny released the album ""un verano sin ti"" in 2022, which included the songs ""moscow mule"" and ""party"".",un verano sin ti
+what is the ex-dividend date of microsoft in the 1st qtr of 2024,finance,simple_w_condition,"the ex-dividend date of microsoft in the 1st qtr of 2024 is feb 14, 2024","may 15, 2024"
+when did the current president of the us get married?,open,multi-hop,"the current president of the us, joe biden, got married on june 17, 1977.","june 2, 1886"
+"what album did kings of leon release in 2013, which included the songs ""wait for me"" and ""family tree""?",music,simple_w_condition,"kings of leon released the album ""mechanical bull"" in 2013, which included the songs ""wait for me"" and ""family tree"".",mechanical bull
+what was cj stroud's touchdown to interception ratio in his rookie season?,sports,post-processing,4.6,26 touchdowns and 3 interceptions.
+at what age did miley cyrus come out as gender fluid,open,multi-hop,22 years old,2015
+who has more followers? donald trump or joe biden,open,comparison,joe biden,joe biden's campaign account has more followers.
+who is the starting small forward for the team that is currently number one in the nba's eastern conference?,sports,multi-hop,"jayson tatum is the starting small forward for the boston celtics, currently the number one in the nba's eastern conference.",lebron james
+which film took longer to produce inside out or coraline?,movie,comparison,"inside out took longer at 5 years, coraline took 4 years.",four years.
+was tron the first to use computer-generated imagery (cgi) entirely?,movie,false_premise,invalid question,"no, tron was not the first to use computer-generated imagery (cgi) entirely."
+who wrote the theme song for the movie ghostbusters (1984)?,movie,multi-hop,"ghostbusters was written by ray parker jr., as the theme song to the 1984 film ghostbusters.",ray parker jr.
+who was the first actress to play the role of wonder woman in a live-action movie?,movie,multi-hop,"cathy lee crosby was the first actress to play the role of wonder woman in a live-action movie, in the 1974 film wonder woman.",lynda carter
+"who is older, will farrell or mark wahlberg?",open,comparison,will farrell is older at the age of 56.,mark wahlberg is older.
+who was the coach of the team that won the nba championship last season?,sports,multi-hop,"michael malone, who coaches the denver nuggets, was the coach of the team that won the nba championship last season.",mike budenholzer
+blmn average closing price last week?,finance,aggregation,$26.59,$27.43
+"who is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together""?",music,multi-hop,"taylor swift is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together"", which have become chart-topping hits and solidified her status as a pop culture icon.",taylor swift
+"when was prince, brother of michael jackson, born?",music,false_premise,invalid question,"february 21, 2002"
+what was newcastle utd's score last week?,sports,false_premise,invalid question,there is no mention of newcastle united's score last week in the provided references.
+what percentage of gross for pixar's 2020 movies came from outside the us and canada?,movie,post-processing,74.57%,"according to the references, the answer is not provided as the given data only includes the grossing figures for the united states and canada, and does not provide information on the grossing figures from outside these regions."
+who was the oppinent that denver nuggets faced in 2023-01-11 in a thrilling game?,sports,false_premise,invalid question,the answer is not available in the given references as there is no information about a game played by denver nuggets on 2023-01-11.
+who was the primary songwriter for the beatles?,music,false_premise,invalid question,john lennon and paul mccartney.
+what was the average gross for all movies in the harry potter series in the uk?,movie,post-processing,"£62,895,676.6",£1.32 billion
+"how many people are casted in the movie ""life of pi""",movie,aggregation,41 cast members,the answer is 4.
+what year did the simpsons stop airing?,movie,false_premise,invalid question,2024
+who are the top three artists with the most monthly listeners on spotify currently?,music,set,"the weeknd, taylor swift, drake","the weeknd, miley cyrus, and taylor swift."
+"who were the lead singers on the album ""dark side of the moon"" by pink floyd?",music,set,"the lead singers on the album ""dark side of the moon"" by pink floyd were roger waters and david gilmour.","roger waters, david gilmour, and richard wright."
+"which movie has a higher rotten tomatoes score, the dark knight or the shawshank redemption?",movie,comparison,the shawshank redemption has a higher rotten tomatoes score with 91% compared to the dark knight's 94%.,the shawshank redemption: 2.
+how much of the total cryptocurrency market cap is ethereum?,finance,post-processing,17.1%,"450,461,722,354 usd"
+who were the stars of living in bondage: breaking free?,movie,set,"ramsey nouah, kanayo o. kanayo, swanky j.k.a., kenneth okonkwo, enyinna nwigwe, shawn faqua, munachi abii, nancy isime, bob-manuel udokwu, ebele okaro-onyiuke, zulu adigwe, ndidi obi","kenneth okonkwo, ramsey nouah, kanayo o. kanayo, swanky jka, bob manuel udokwu, enyinna nwigwe, nancy isime, and munachi abii."
+how many games behind from the last playoff spot are the jazz?,sports,post-processing,2.5 games behind,7
+how much have digital album sales decreased in the us from 2013 to 2019?,music,post-processing,78.7 million less or a -66.7% decrease,"according to the references, there is no specific data provided on digital album sales in the us from 2013 to 2019."
+what is the first song on drake's second album?,music,multi-hop,"over my dead body is the first song on drake's second album, take care.","""successful"""
+how much is tesla's stock price down from its all-time high?,finance,post-processing,$221.83,181.09 usd
+how many actors had roles in both life stinks and city slickers?,movie,aggregation,1,0
+how many streams on average for the top two streamed artic monkeys songs on spotify?,music,post-processing,"~1.97 billion steams per song for ""do i wanna know?"" and ""i wanna be yours""","1,422,946,570 and 1,221,881,056"

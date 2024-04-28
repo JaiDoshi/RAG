@@ -1,0 +1,11 @@
+query,domain,question_type,ground_truth,prediction
+is microsoft office 2019 available in a greater number of languages than microsoft office 2013?,open,comparison,yes,yes.
+what company in the dow jones is the best performer today?,finance,multi-hop,salesforce,salesforce (crm).
+name three celebrities who have been involved in successful collaborations with beauty brands.,open,set,"three celebrities who have been involved in successful collaborations with beauty brands are jennifer aniston (lolavie), kim kardashian (skkn), and selena gomez (rare).","lady gaga, naomi osaka, and selena gomez."
+what is the other language between heaven and hell came out in originally?,movie,simple,en,hebrew.
+how many times has rory mcilroy won the masters tournament?,sports,false_premise,"rory mcilroy has never won the masters tournament, despite being one of the most successful golfers on the pga tour.",zero.
+which companies have the highest level of dividend yield?,finance,set,"some companies with a high level of dividend yield are hess midstream lp, xerox, and at&t with dividend yields of over 5% each.","pfizer inc. (pfe), devon energy corp. (dvn), whirlpool corp. (whr), 3m co. (mmm), kinder morgan inc. (kmi), at&t inc. (t), verizon communications inc. (vz), healthpeak properties inc. ("
+what is the shortest highway in the us in feet?,open,multi-hop,"the shortest highway in the us, i-878 in new york, is only 3,696 feet long.","1,907 feet."
+"which company have larger market cap, plya or seatw?",finance,comparison,nan,"seatw is not a well-known company, but playa is likely a reference to playa hotels & resorts, a hospitality company with a market capitalization of around $1.3 billion."
+who was the first actor to play the role of a comic book villain in a live-action movie?,movie,multi-hop,"carol forman was the first actor to play the role of a comic book villain in a live-action movie, in his iconic portrayal of the spider lady in superman, directed by spencer gordon bennet and thomas carr.",cesar romero.
+is dreamworks animation owned by time warner or universal pictures?,movie,comparison,universal pictures,nbcuniversal.

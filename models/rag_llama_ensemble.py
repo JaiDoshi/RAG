@@ -73,7 +73,6 @@ class RAGModel:
 
         # Template for formatting the input to the language model, including placeholders for the question and references.
         self.prompt_template = """
-        Given the following question and references, extract any part of the reference *AS IS* that is relevant to answer the question. Answer the question in less than 20 words.
         ### Question
         {query}
 

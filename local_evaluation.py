@@ -2,6 +2,7 @@ import bz2
 import json
 import os
 from datetime import datetime
+import csv
 
 from loguru import logger
 from openai import APIConnectionError, OpenAI, RateLimitError
@@ -11,6 +12,20 @@ from transformers import LlamaTokenizerFast
 
 tokenizer = LlamaTokenizerFast.from_pretrained("tokenizer")
 
+def write_dict_list_to_csv(dict_list, csv_file_path):
+    # Extract field names from the first dictionary in the list
+    fieldnames = dict_list[0].keys() if dict_list else []
+
+    # Write the data to the CSV file
+    with open(csv_file_path, 'w', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        # Write header
+        writer.writeheader()
+        
+        # Write rows
+        for row in dict_list:
+            writer.writerow(row)
 
 def load_json_file(file_path):
     """Load and return the content of a JSON file."""
@@ -87,8 +102,8 @@ def trim_predictions_to_max_token_length(prediction):
 
 def generate_predictions(dataset_path, participant_model):    
     predictions = []
-    with bz2.open('data/processed_data.jsonl', "rt") as bz2_file:
-        for line in tqdm(bz2_file, desc="Generating Predictions"):
+    with open(dataset_path, 'r', encoding='utf-8') as f:
+        for line in tqdm(f, desc="Generating Predictions"):
             data = json.loads(line)
             
             query = data["query"]
@@ -103,6 +118,8 @@ def generate_predictions(dataset_path, participant_model):
             predictions.append(
                 {
                     "query": query,
+                    "domain": data["domain"],
+                    "question_type": data["question_type"],
                     "ground_truth": str(data["answer"]).strip().lower(),
                     "prediction": str(prediction).strip().lower(),
                 }
@@ -115,14 +132,14 @@ def generate_predictions(dataset_path, participant_model):
 if __name__ == "__main__":
     from models.user_config import UserModel
 
-    DATASET_PATH = "example_data/dev_data.jsonl.bz2"
-    EVALUATION_MODEL_NAME = os.getenv(
-        "EVALUATION_MODEL_NAME", "gpt-4-0125-preview"
-    )
+    DATASET_PATH = "data/processed_data.jsonl"
 
     # Generate predictions
     participant_model = UserModel()
     predictions = generate_predictions(DATASET_PATH, participant_model)
     print(predictions)
+    csv_file_path = 'output.csv'
+    write_dict_list_to_csv(predictions, csv_file_path)
+
 
 

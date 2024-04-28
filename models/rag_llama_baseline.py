@@ -13,6 +13,7 @@ from transformers import (
     BitsAndBytesConfig,
     pipeline,
 )
+import sys
 
 ######################################################################################################
 ######################################################################################################
@@ -62,6 +63,8 @@ class RAGModel:
 
         # Template for formatting the input to the language model, including placeholders for the question and references.
         self.prompt_template = """
+
+
         ### Question
         {query}
 
@@ -80,7 +83,7 @@ class RAGModel:
         )
 
         # Specify the large language model to be used.
-        model_name = "meta-llama/Llama-2-7b-chat-hf"
+        model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
 
         # Load the tokenizer for the specified model.
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -89,7 +92,7 @@ class RAGModel:
         self.llm = AutoModelForCausalLM.from_pretrained(
             model_name,
             device_map="auto",
-           # quantization_config=bnb_config,
+            quantization_config=bnb_config,
             torch_dtype=torch.float16,
         )
 
@@ -98,7 +101,7 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens=10,
+            max_new_tokens=75,
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:
@@ -168,18 +171,41 @@ class RAGModel:
             query=query, references=references
         )
 
+        messages = [
+            {"role": "system", "content": """You are a RAG model that uses the information given in References to answer the Question. 
+             Output only the answer without any additional explanation. 
+             """},
+            {"role": "user", "content": final_prompt},
+        ]   
+
+        prompt = self.generation_pipe.tokenizer.apply_chat_template(
+                messages, 
+                tokenize=False, 
+                add_generation_prompt=True
+        )
+
+        terminators = [
+            self.generation_pipe.tokenizer.eos_token_id,
+            self.generation_pipe.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
         # Generate an answer using the formatted prompt.
-        result = self.generation_pipe(final_prompt)
+        result = self.generation_pipe(prompt, eos_token_id=terminators)
         result = result[0]["generated_text"]
+        #print(result)
 
         try:
             # Extract the answer from the generated text.
-            answer = result.split("### Answer\n")[-1]
+            answer = result.split("<|end_header_id|>")[-1]
         except IndexError:
             # If the model fails to generate an answer, return a default response.
             answer = "I don't know"
+
+        # print(answer)
+        # sys.exit(0)
 
         # Trim the prediction to a maximum of 75 tokens (this function needs to be defined).
         trimmed_answer = trim_predictions_to_max_token_length(answer)
 
         return trimmed_answer
+

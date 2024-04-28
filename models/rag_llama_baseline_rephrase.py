@@ -190,7 +190,7 @@ class RAGModel:
         result1 = self.generation_pipe(prompt1, eos_token_id=terminators)
         result1 = result1[0]["generated_text"]
         answer1 = result1.split("<|end_header_id|>")[-1]
-
+        print(answer1)
         # Format the top sentences as references in the model's prompt template.
         references = ""
         for snippet in top_sentences:

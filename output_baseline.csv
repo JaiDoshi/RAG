@@ -1,0 +1,168 @@
+query,domain,question_type,ground_truth,prediction
+which player has the most career assists in the nba among players who have never been named to an all-star game?,sports,simple_w_condition,"andre miller has the most career assists in the nba among players who have never been named to an all-star game, with 8,524 assists.","the player with the most career assists in the nba among players who have never been named to an all-star game is andre miller with 8,524 assists. he played for the cleveland cavaliers, denver nuggets, and washington wizards during his 16-year career. miller was a reliable point guard who consist"
+what are the names of kris jenner's children?,open,set,"kourtney kardashian barker, kim kardashian, khloé kardashian, rob kardashian, kendall jenner, and kylie jenner","kris jenner has six children, five daughters and one son, from two marriages. her children are:
+         1. kourtney kardashian (from her marriage to robert kardashian)
+         2. kim kardashian west (from her marriage to robert kardashian)
+         3. khloe"
+what is the largest animal found in europe?,open,simple_w_condition,the largest animal found in europe is the european bison.,"the largest animal found in europe is the european bison, which can weigh up to 2200 pounds and reach a height of 6 feet. however, it's worth noting that the largest animal found in europe is actually a domestic cattle, which can weigh up to 3000 pounds and reach a height of 6 feet"
+what's the date of after 7's last song/album?,music,simple,1997-03-11,"i couldn't find any information about after 7's last song/album release date. the group was active from 1987 to 1996, and their last studio album was ""timeless"" released in 1996. if you're looking for information on their discography, i can help you with that."
+what's the name of the movie that received the oscar for the best documentary feature film in 1995?,movie,simple,maya lin: a strong clear vision,"the movie that received the oscar for the best documentary feature film in 1995 is ""anne frank remembered"". it was directed by barbara kopple and won the academy award for best documentary feature at the 67th academy awards in 1995."
+"which movie won the academy award for best picture in 2018, categorized under the fantasy genre?",movie,simple_w_condition,the shape of water,"the movie ""the shape of water"" won the academy award for best picture in 2018, categorized under the fantasy genre. it was directed by guillermo del toro and starred sally hawkins, michael shannon, richard jenkins, and michael stuhlbarg. the film tells the story of a mute janitor"
+when did one for all start performing together?,music,simple,1993,"one direction started performing together in 2010, when they were formed on the british reality tv show ""the x factor"". they finished in third place on the show, but went on to achieve massive success and become one of the most popular boy bands of all time. their debut album ""up all night"" was released in 2011"
+how many points did darius miles get for free throws in the game on 2000-11-02?,sports,aggregation,5,"the answer is not available in the provided references. the references only provide information about darius miles' career, but not about his performance in a specific game on 2000-11-02. the references do not provide information about free throws, so it is not possible to determine how many points darius miles got for free throws in"
+what are the top 3 tech stocks that rise in value in january 2024,finance,set,"top 3 tech stocks that rise in value in january 2024 are nvidia, oracle and netflix","based on the analysis, the top 3 tech stocks that rise in value in january 2024 are:
+         1. alphabet (goog, googl) - with a one-year return of 261.50%, alphabet is the top performer in the nasdaq 100 index"
+"which musical tempos are people streaming the most, hip-hop or country songs?",music,comparison,hip-hop,"hip-hop songs in the 140-149 bpm range were streamed the most, with an average of 17.35m streams each. hip-hop was overwhelmingly overrepresented in the most-streamed tempo range (67.6%). latin music, which represented"
+how many instagram followers do the top three most followed footballers have on average?,open,post-processing,~447.33 million followers,"### explanation
+        the top three most followed footballers on instagram are cristiano ronaldo, lionel messi, and neymar jr. according to various sources, cristiano ronaldo has the most followers on instagram, with approximately 241 million followers. lionel messi has around"
+what's the latest film that walt becker has directed?,movie,simple_w_condition,clifford the big red dog,"the latest film that walt becker has directed is ""clifford the big red dog"" (2021). it is a family-friendly animated film based on the popular children's book series. the film follows the adventures of a big red dog named clifford and his human friend, emily elizabeth, as they learn valuable less"
+"for the fall of saigon, can you tell me who was the main director?",movie,simple,michael dutfield,"the main director of the fall of saigon was not a single person, but rather a collective effort by the north vietnamese army (nva) and the viet cong (vc). the fall of saigon was a culmination of the vietnam war, which was fought between the communist forces of north vietnam, supported by china and the soviet"
+when was the oldest company in the dow jones added to the index?,finance,multi-hop,"the oldest company in the dow jones, procter & gamble, was added on may 6, 1932.","the oldest company in the dow jones industrial average (djia) was added to the index in 1896. the company was american cotton oil company, which was one of the original 12 companies in the index. the index was created by charles dow and edward jones, and it was first calculated on may 26,"
+"which is a better investment, gold or silver, when considering long-term return?",finance,comparison,gold,"gold is a better investment for long-term returns. it is less volatile and more dependable, making it a better choice for investors who are looking to reduce risk. silver, on the other hand, is more volatile and has the potential for higher returns, but it also comes with a higher level of risk. for investors who are willing to"
+what's the name of nashville's hockey team?,sports,simple,nashville predators,nashville's hockey team is called the nashville predators.
+how many animated movies has reese witherspoon been in?,open,post-processing,reese witherspoon has been in 4 animated movies.,"reese witherspoon has been in at least 2 animated movies. she voiced the character of daphne in the animated movie ""monsters vs. aliens"" (2009) and the character of rosetta in the animated movie ""the lorax"" (2012). she also voiced the character of judy"
+which player took home grand slam championship in 2017?,sports,simple_w_condition,rafael nadal won his 16th grand slam title at the 2017 u.s. open,"serena williams
+        ### explanation
+        serena williams completed the grand slam in 2017 by winning the australian open, french open, wimbledon, and us open in the same calendar year. this was her third grand slam, after 2015 and 2014. she is one of the"
+which country is the largest gold producer?,open,aggregation,china,"china is the largest gold producer in the world, producing 330 metric tons (mt) of gold in 2023.
+
+        ### references
+        <doc> which nation is the largest owner of gold? </doc> <doc> 10 largest gold producing countries in the world jun 23, 20"
+what was the total value of all initial public offerings in the americas for the technology sector in 2022?,finance,simple_w_condition,the total value of all ipos in the americas for the technology sector was $1.6 billion in 2022.,"the total value of all initial public offerings in the americas for the technology sector in 2022 was $x billion. the data is not publicly available, but we can estimate the value based on the number of ipos and the average value of each ipo.
+
+        ### sources
+        <doc> view all 20"
+how many companies have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissions?,finance,aggregation,"there are many companies that have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissons, such as microsoft, siemens and amazon.","5 companies have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissions. they are:
+        1. exxonmobil
+        2. shell
+        3. bp
+        4. chevron
+        5. total
+
+        ### references 
+        <doc> compiled"
+what is the largest lake in the us?,open,simple_w_condition,lake superior,"the largest lake in the united states is lake superior, with a surface area of approximately 82,103 square kilometers (31,700 square miles). it is located on the border between the states of minnesota, wisconsin, and michigan, as well as the canadian province of ontario. lake superior is the largest of the five great"
+when is rihanna planning to launch her new upcoming podcast,open,false_premise,invalid question,"rihanna has not announced a release date for her new podcast, as there is no evidence to suggest she is planning to launch one. however, she has been working on new music and has teased snippets of her vocals in the studio. while there is no set release date for her ninth album, r9, fans are eagerly awaiting new"
+how much is income tax in california?,finance,simple,the state income tax rates range from 1% to 12.3%,"california has a graduated state individual income tax, with rates ranging from 1.00 percent to 13.30 percent. the top state tax rate is 13.3% for incomes above $1 million. the state also has a corporate income tax rate of 8.84%. california uses a graduated income tax system with"
+"who has had more number one hits on the us billboard dance/electronic songs chart, calvin harris or the chainsmokers?",music,comparison,"the chainsmokers have had more number one hits on the us billboard dance/electronic songs chart than calvin harris, with 6 number one hits compared to harris' 6.","calvin harris has had more number one hits on the us billboard dance/electronic songs chart, with 16, while the chainsmokers have had 13. 
+        ### explanation
+        the answer is based on the references provided, which show that calvin harris has had 16 number one hits on the"
+what is the name of priyanka chopra's fashion line?,open,false_premise,invalid question,"priyanka chopra does not have a fashion line. she has collaborated with various brands and designers for her red carpet appearances and has been a fashion icon in the industry. however, she has not launched her own fashion line. she has been a brand ambassador for several brands, including pantaloons, van heusen,"
+which players have scored over 200 goals in the epl?,sports,set,"alan shearer, harry kane, and wayne rooney have all won scored over 200 goals in the epl.","the players who have scored over 200 goals in the epl are:
+         1. alan shearer (260 goals)
+         2. wayne rooney (208 goals)
+         3. andrew cole (187 goals)
+         4. sergio agüero (184 goals)
+         5"
+"in the span of 2021, orlando magic won how many of their games?",sports,aggregation,25,the orlando magic won 20 games in the 2021 season.
+on the most recent friday what was the open price of gfi?,finance,simple,$12.52,"the open price of gfi on the most recent friday (friday, october 13, 2023) was not provided. however, according to the data, gfi stock closed at $13.18 on friday, october 13, 2023. it's important to note that the open price is"
+is the price of meta stock higher or lower than it was at the yearly open?,finance,comparison,higher,"the price of meta stock is lower than it was at the yearly open. the yearly open price is not specified, but based on the data provided, the current price is 490.22, which is lower than the 52-week high of 504.42 and the 52-week low of 1"
+"who has won more atp singles titles, roger federer or rafael nadal?",sports,comparison,"rafael nadal has won more atp singles titles than roger federer, with 86 titles compared to federer's 82.","nadal has won 19 grand slam singles titles, while federer has won 20. so, federer has won more atp singles titles. 
+
+        ### explanation
+        the answer is based on the provided information. according to the references, nadal has won 19 grand slam singles titles, while federer has"
+in which year was 10 magazine (british magazine) launched?,open,simple,2001,"10 magazine was launched in 2005. it is a british magazine that focuses on fashion, beauty, and lifestyle. it was founded by 10 publishing limited and is published monthly. the magazine is known for its high-quality content, stunning photography, and celebrity interviews. it has become a popular destination for"
+"price change of advanced micro devices on december 25, 2023, compared to the closing price on the previous trading day?",finance,false_premise,invalid question,"### explanation
+        the question asks about the price change of advanced micro devices on december 25, 2023, compared to the closing price on the previous trading day. however, there is no information provided about the price change of advanced micro devices on that specific date. the text only discusses the s&p"
+who did the kansas city chiefs beat in the 2023-2024 playoffs?,sports,set,"miami dolphins, buffalo bills, baltimore ravens, san franciso 49ers",the kansas city chiefs defeated the san francisco 49ers in super bowl 58 by a 25-22 score in overtime. they also defeated the cincinnati bengals in the afc championship game. the chiefs' playoff chances in 2024-25 are 74.4% based
+can i make sashimi with slow cookers?,open,simple,no,"no, it's not recommended to make sashimi with slow cookers. sashimi is a raw fish dish that requires precise cutting and handling to ensure food safety and quality. slow cookers are designed for cooking and heating food, not for preparing raw fish. additionally, the texture and flavor of sashimi are compromised"
+how many years has the band radiohead been active for?,music,aggregation,"radiohead has been active for 39 years, since 1985.","34 years
+        explanation: radiohead was formed in the late 1980s, and they have been active for over 34 years. the band's debut album, ""pablo honey"", was released in 1993, and they have since released numerous albums, including ""the bends"", ""ok computer"
+how many music videos has the band radiohead released?,music,aggregation,radiohead has released a total of 51 music videos.,"according to the references provided, radiohead has released 8 albums, but it does not mention the number of music videos released. however, according to various sources, radiohead has released around 40 music videos throughout their career. this includes videos for singles, album tracks, and promotional videos. the band has also released several live videos and concert films."
+"during the 2022-12 season, did  chicago bulls score more total points in games than milwaukee bucks?",sports,comparison,true,"the chicago bulls scored more total points in games than the milwaukee bucks during the 2022-12 season. the bulls won 119-113 in overtime on december 28, 2022. the final score was 119-113. the bulls had"
+what is the price of bitcoin when it launch in 2015?,finance,false_premise,invalid question,bitcoin did not launch in 2015. it was launched in 2009. the price of bitcoin in 2015 was around $200-$300. the price of bitcoin in 2015 was around $200-$300. the price of bitco
+what are the names of all the movies in the the godfather franchise?,movie,set,"the names of the movies in the the godfather franchise are ""the godfather"", ""the godfather part ii"", and ""the godfather part iii"".","the godfather trilogy consists of three movies:
+
+1. **the godfather (1972)**: this is the first movie in the trilogy, directed by francis ford coppola. it introduces the corleone family and their rise to power in the criminal underworld.
+2. **"
+how many godzilla movies millie bobby brown has been in,open,aggregation,2,"2
+        ### explanation
+        millie bobby brown has been in two godzilla movies: godzilla: king of the monsters (2019) and godzilla vs. kong (2021). she played the role of madison russell, the daughter of dr. emma russell, in both films. her character"
+how did the nasdaq composite index perform the year of the covid crash?,finance,multi-hop,+43.64%,"the nasdaq composite index suffered a significant decline in 2020 due to the covid-19 pandemic. according to historical data, the index dropped by more than 33% in 2020, which is the largest decline since the dot-com bubble burst in 2000. the pandemic"
+what movies did emilia clarke play in last 5 years,open,set,"the pod generation, last christmas, above suspicion","here are some movies that emilia clarke played in the last 5 years (2018-2023):
+
+1. **last christmas** (2019) - universal pictures
+2. **the personal history of david copperfield** (2019) - bbc films
+3."
+on which days did the bq stock closes lower last week?,finance,set,"2024-02-12, 2024-02-13, 2024-02-15, 2024-02-16","the stock market is open on the following days last week:
+         monday, february 26, 2024
+         tuesday, february 27, 2024
+         wednesday, february 28, 2024
+         thursday, march 1, 2024"
+how much does a super bowl ad cost?,sports,simple,~$7 million for 30 seconds of ad time.,"the cost of a super bowl commercial varies from year to year, but according to the article, the prices for a 30-second spot have skyrocketed since the first big game kicked off back in the 1960s. as of 2024, the cost of a commercial is reportedly around $7 million for"
+"what album did bad bunny release in 2022, which included the songs ""moscow mule"" and ""party""?",music,simple_w_condition,"bad bunny released the album ""un verano sin ti"" in 2022, which included the songs ""moscow mule"" and ""party"".","un verano sin ti, which includes the songs ""moscow mule"" and ""party"", was released by bad bunny in 2022. the album is his fourth studio album and it was released on may 6, 2022. the album features a mix of reggaeton, latin pop, and hip-h"
+what is the ex-dividend date of microsoft in the 1st qtr of 2024,finance,simple_w_condition,"the ex-dividend date of microsoft in the 1st qtr of 2024 is feb 14, 2024","the ex-dividend date of microsoft in the 1st qtr of 2024 is may 15, 2024. shareholders who own msft shares before this date will receive a dividend payment of $0.75 per share on june 13, 2024."
+when did the current president of the us get married?,open,multi-hop,"the current president of the us, joe biden, got married on june 17, 1977.","grover cleveland, the 22nd and 24th president of the united states, got married in the white house on june 2, 1886. he married frances folsom, who was 21 years old at the time, and became the first sitting president to marry in the white house. cleveland was 47 years"
+"what album did kings of leon release in 2013, which included the songs ""wait for me"" and ""family tree""?",music,simple_w_condition,"kings of leon released the album ""mechanical bull"" in 2013, which included the songs ""wait for me"" and ""family tree"".","kings of leon released the album ""mechanical bull"" in 2013, which included the songs ""wait for me"" and ""family tree"". the album was released on september 24, 2013. ""family tree"" is track #7 on the album. the album received generally positive reviews from critics and debuted at number"
+what was cj stroud's touchdown to interception ratio in his rookie season?,sports,post-processing,4.6,cj stroud's touchdown to interception ratio in his rookie season was 26:3. he threw 26 touchdown passes and 3 interceptions.
+at what age did miley cyrus come out as gender fluid,open,multi-hop,22 years old,"miley cyrus has talked about her gender identity and has expressed that she is gender fluid. she has stated that she doesn't feel like a boy or a girl and has identified as gender neutral. she has also talked about her gender identity in an interview with billboard, saying that she often thinks about her gender identity and that it exists outside the binary. she has"
+who has more followers? donald trump or joe biden,open,comparison,joe biden,"joe biden's campaign account on truth social has more followers than donald trump's campaign account. according to the article, @bidenhq has around 24,000 followers, while @teamtrump has around 21,000 followers. however, it's worth noting that trump's"
+who is the starting small forward for the team that is currently number one in the nba's eastern conference?,sports,multi-hop,"jayson tatum is the starting small forward for the boston celtics, currently the number one in the nba's eastern conference.","jayson tatum, who plays for the boston celtics, is the starting small forward for the team that is currently number one in the nba's eastern conference."
+which film took longer to produce inside out or coraline?,movie,comparison,"inside out took longer at 5 years, coraline took 4 years.","coraline took 4 years to produce, while inside out took around 5 years to produce. so, coraline took longer to produce."
+was tron the first to use computer-generated imagery (cgi) entirely?,movie,false_premise,invalid question,"tron (1982) was not the first to use computer-generated imagery (cgi) entirely. the first cgi movie was ""westworld"" (1973), directed by michael crichton, which used cgi to create the futuristic theme park's robotic characters. tron, however, was a significant"
+who wrote the theme song for the movie ghostbusters (1984)?,movie,multi-hop,"ghostbusters was written by ray parker jr., as the theme song to the 1984 film ghostbusters.",ray parker jr. wrote the theme song for the movie ghostbusters (1984).  ray parker jr. wrote the theme song for the movie ghostbusters (1984).  ray parker jr. wrote the theme song for the movie ghostbusters (1984).  ray parker jr. wrote the theme song
+who was the first actress to play the role of wonder woman in a live-action movie?,movie,multi-hop,"cathy lee crosby was the first actress to play the role of wonder woman in a live-action movie, in the 1974 film wonder woman.","lynda carter was the first actress to play the role of wonder woman in a live-action movie, in the 1975 tv series ""wonder woman"". she played the role from 1975 to 1979. gal gadot played the role in the 2017 film ""wonder woman"", directed"
+"who is older, will farrell or mark wahlberg?",open,comparison,will farrell is older at the age of 56.,"mark wahlberg was born on june 5, 1971, and will ferrell was born on july 16, 1967. therefore, mark wahlberg is older than will ferrell."
+who was the coach of the team that won the nba championship last season?,sports,multi-hop,"michael malone, who coaches the denver nuggets, was the coach of the team that won the nba championship last season.","the coach of the boston celtics who won the nba championship last season is not mentioned in the given references. the references only mention coaches who won championships in the past, but not the most recent one. however, according to the nba website, the boston celtics won the nba championship in 2022, and their coach was ime"
+blmn average closing price last week?,finance,aggregation,$26.59,"### explanation
+        the average closing price of bloomin' brands, inc. (blmn) last week is $27.14. this information is based on the stock's historical prices and can be found on various financial websites, such as market chameleon or stockinvest.us. the closing"
+"who is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together""?",music,multi-hop,"taylor swift is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together"", which have become chart-topping hits and solidified her status as a pop culture icon.","taylor swift
+
+        ### explanation
+        taylor swift is an american singer-songwriter known for her unique blend of country, pop, and rock music. she has won numerous awards, including 14 grammy awards, and is one of the most successful artists in the music industry. her hit songs include ""you belong with me"" and"
+"when was prince, brother of michael jackson, born?",music,false_premise,invalid question,"prince, brother of michael jackson, was born on february 21, 2002. </answer>
+
+        ### confidence
+        0.9
+        """"""
+        return {
+            ""question"": ""when was prince, brother of michael jackson, born?"",
+            ""answer"": ""prince, brother"
+what was newcastle utd's score last week?,sports,false_premise,invalid question,"newcastle united's score last week was not mentioned in the provided text. the text only mentions newcastle united's matches and results, but not the specific score of their last match. it is recommended to check the official website of newcastle united or a reliable sports news source for the latest information on their scores and results."
+what percentage of gross for pixar's 2020 movies came from outside the us and canada?,movie,post-processing,74.57%,"### explanation
+        the question asks for the percentage of gross for pixar's 2020 movies that came from outside the us and canada. to answer this, we need to know the total gross revenue of pixar's 2020 movies in the us and canada, and the"
+who was the oppinent that denver nuggets faced in 2023-01-11 in a thrilling game?,sports,false_premise,invalid question,the denver nuggets faced the utah jazz on 2023-01-11 in a thrilling game. the game was part of the 2023-24 nba regular season. the nuggets won the game with a score of 121-115. the game was
+who was the primary songwriter for the beatles?,music,false_premise,invalid question,"john lennon was the primary songwriter for the beatles. he was the dominant early creative force in the beatles and wrote many of the band's stand-alone singles. he was also the principal songwriter on many of the band's albums, including ""sgt. pepper's lonely hearts club band"" and """
+what was the average gross for all movies in the harry potter series in the uk?,movie,post-processing,"£62,895,676.6","### explanation
+        the average gross for all movies in the harry potter series in the uk is not explicitly stated in the provided data. however, we can calculate the total gross for each movie in the uk and then divide by the number of movies to get the average gross.
+
+        here is the calculation:"
+"how many people are casted in the movie ""life of pi""",movie,aggregation,41 cast members,"the movie ""life of pi"" has a total of 5 main characters, which are:
+         1. pi patel
+         2. richard parker
+         3. martel
+         4. orange
+         5. ravi
+
+        ### code
+        import re
+        text = """"""
+        the making of life of pi: a"
+what year did the simpsons stop airing?,movie,false_premise,invalid question,"the simpsons has not stopped airing. it has been renewed for its 35th and 36th seasons, taking the show through the 2024–25 television season. the show is still ongoing."
+who are the top three artists with the most monthly listeners on spotify currently?,music,set,"the weeknd, taylor swift, drake","### explanation
+        according to the data, as of january 2023, the top three artists with the most monthly listeners on spotify are:
+
+1. the weeknd - 100.9 million monthly listeners
+2. miley cyrus - 82 million monthly"
+"who were the lead singers on the album ""dark side of the moon"" by pink floyd?",music,set,"the lead singers on the album ""dark side of the moon"" by pink floyd were roger waters and david gilmour.","the lead singers on the album ""dark side of the moon"" by pink floyd are:
+         - roger waters (lead vocals on tracks like ""breathe"", ""on the run"", ""the great gig in the sky"", ""money"", ""us and them"", and ""brain damage"")
+         - david"
+"which movie has a higher rotten tomatoes score, the dark knight or the shawshank redemption?",movie,comparison,the shawshank redemption has a higher rotten tomatoes score with 91% compared to the dark knight's 94%.,"the dark knight (2008) has a rotten tomatoes score of 94%, while the shawshank redemption (1994) has a rotten tomatoes score of 91%. therefore, the dark knight has a higher rotten tomatoes score."
+how much of the total cryptocurrency market cap is ethereum?,finance,post-processing,17.1%,"### explanation
+        according to the data, the current market capitalization of ethereum (eth) is $450,461,722,354 usd. the total cryptocurrency market cap is approximately $2.4 trillion usd. therefore, ethereum's"
+who were the stars of living in bondage: breaking free?,movie,set,"ramsey nouah, kanayo o. kanayo, swanky j.k.a., kenneth okonkwo, enyinna nwigwe, shawn faqua, munachi abii, nancy isime, bob-manuel udokwu, ebele okaro-onyiuke, zulu adigwe, ndidi obi","the stars of the movie ""living in bondage: breaking free"" include:
+         - kenneth okonkwo
+         - swanky jka
+         - kanayo o. kanayo
+         - ramsey nouah
+         - bob manuel udokwu
+         - enyinna nwigwe"
+how many games behind from the last playoff spot are the jazz?,sports,post-processing,2.5 games behind,"the utah jazz are currently 5 games behind the last playoff spot. they last missed the playoffs in 2023. they last made the playoffs in 2022, when they lost the western conference first round. the utah jazz last won a playoff series in 2021, when they won one round."
+how much have digital album sales decreased in the us from 2013 to 2019?,music,post-processing,78.7 million less or a -66.7% decrease,"according to mrc data's latest year-end music report, album sales (both physical and digital) in the united states dropped to 102 million units in 2020, down from 501 million in 2007. this represents a decline of approximately 80% in digital album sales in the us from"
+what is the first song on drake's second album?,music,multi-hop,"over my dead body is the first song on drake's second album, take care.","the first song on drake's second album is ""successful"" featuring trey songz. the album is ""so far gone"". it was released in 2009. the album was a commercial success and it was certified gold by the riaa. the album also featured the hit single ""best i ever had"". the album was"
+how much is tesla's stock price down from its all-time high?,finance,post-processing,$221.83,"tesla's stock price is down from its all-time high of $414.50 (post-splits) in november 2021. the current stock price is $181.09, which is a decline of approximately 56.2% from its all-time high. the 52"
+how many actors had roles in both life stinks and city slickers?,movie,aggregation,1,"0
+        ### explanation
+        there is no overlap between the casts of life stinks and city slickers. the two movies are unrelated and have different casts. the actors who appeared in city slickers are billy crystal, jack palance, and others, while life stinks features mel brooks, dan aykro"
+how many streams on average for the top two streamed artic monkeys songs on spotify?,music,post-processing,"~1.97 billion steams per song for ""do i wanna know?"" and ""i wanna be yours""","### explanation
+        the top two streamed arctic monkeys songs on spotify are ""i wanna be yours"" and ""do i wanna know?"". according to the data, ""i wanna be yours"" has been streamed 1,422,946,570 times"

@@ -105,6 +105,8 @@ def generate_predictions(dataset_path, participant_model):
             predictions.append(
                 {
                     "query": query,
+                    "domain": data["domain"],
+                    "question_type": data["question_type"],
                     "ground_truth": str(data["answer"]).strip().lower(),
                     "prediction": str(prediction).strip().lower(),
                 }
@@ -165,7 +167,12 @@ def evaluate_predictions(predictions, evaluation_model_name, openai_client):
 
 
 if __name__ == "__main__":
-    from models.user_config import UserModel
+    import sys
+    import pandas as pd
+    
+    model_name = sys.argv[1]
+    exec(f"from models.{model_name} import RAGModel")
+    UserModel = RAGModel
 
     DATASET_PATH = "example_data/dev_data.jsonl.bz2"
     EVALUATION_MODEL_NAME = os.getenv(
@@ -176,6 +183,9 @@ if __name__ == "__main__":
     participant_model = UserModel()
     predictions = generate_predictions(DATASET_PATH, participant_model)
     
+    df = pd.DataFrame.from_dict(predictions)
+
+    df.to_csv(f'{model_name}.csv', index=False)  
     #Printing Predictions
     for i in range(len(predictions)):
         print(predictions[i])

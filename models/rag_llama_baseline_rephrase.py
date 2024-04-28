@@ -177,7 +177,7 @@ class RAGModel:
         ]
 
         prompt1 = self.generation_pipe.tokenizer.apply_chat_template(
-                messages, 
+                messages1, 
                 tokenize=False, 
                 add_generation_prompt=True
         )

@@ -98,8 +98,8 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens=75,
-            temperature=0.3
+            max_new_tokens=75
+            # temperature=0.3
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:

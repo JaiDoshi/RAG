@@ -2,6 +2,8 @@ import bz2
 import json
 import os
 from datetime import datetime
+from rank_bm25 import BM25Okapi
+from typing import List, Tuple
 
 from loguru import logger
 from openai import APIConnectionError, OpenAI, RateLimitError
@@ -99,7 +101,7 @@ def generate_predictions(dataset_path, participant_model):
             )
             
             # trim prediction to 75 tokens
-            prediction = trim_predictions_to_max_token_length(prediction)
+            #prediction = trim_predictions_to_max_token_length(prediction)
             predictions.append(
                 {
                     "query": query,
@@ -173,9 +175,12 @@ if __name__ == "__main__":
     # Generate predictions
     participant_model = UserModel()
     predictions = generate_predictions(DATASET_PATH, participant_model)
-
+    
+    #Printing Predictions
+    for i in range(len(predictions)):
+        print(predictions[i])
     # Evaluate Predictions
-    openai_client = OpenAI()
-    evaluation_results = evaluate_predictions(
-        predictions, EVALUATION_MODEL_NAME, openai_client
-    )
+    # openai_client = OpenAI()
+    # evaluation_results = evaluate_predictions(
+    #     predictions, EVALUATION_MODEL_NAME, openai_client
+    # )

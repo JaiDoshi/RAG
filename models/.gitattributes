@@ -1,0 +1,2 @@
+models/meta-llama/* filter=lfs diff=lfs merge=lfs -text
+models/sentence-transformers/* filter=lfs diff=lfs merge=lfs -text

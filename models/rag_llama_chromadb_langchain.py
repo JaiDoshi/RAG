@@ -1,5 +1,6 @@
 import os
-from typing import Dict, List
+from typing import Dict, List, Tuple
+
 
 import numpy as np
 import torch
@@ -13,6 +14,21 @@ from transformers import (
     BitsAndBytesConfig,
     pipeline,
 )
+
+from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS, Chroma
+from transformers import AutoModelForQuestionAnswering
+from langchain import HuggingFacePipeline
+from langchain.chains import RetrievalQA
+from langchain_community.document_loaders import TextLoader
+
+# from faiss import IndexFlatL2
+# from langchain.vectorstores import FAISS
+# from langchain.docstore import InMemoryDocstore
+# # from langchain.embeddings import OpenAIEmbeddings
+# from langchain.vectorstores.base import VectorStore
+from rank_bm25 import BM25Okapi
 
 ######################################################################################################
 ######################################################################################################
@@ -62,6 +78,7 @@ class RAGModel:
 
         # Template for formatting the input to the language model, including placeholders for the question and references.
         self.prompt_template = """
+        Given the following question and references, extract any part of the reference *AS IS* that is relevant to answer the question. Answer the question in less than 20 words, if none of the reference is relevant return "I don't know", do not give an answer when you are not very confident.
         ### Question
         {query}
 
@@ -98,7 +115,7 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens=10,
+            max_new_tokens=75,
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:
@@ -125,39 +142,86 @@ class RAGModel:
 
         # Process each HTML text from the search results to extract text content.
         for html_text in search_results:
+
             # Parse the HTML content to extract text.
+            page = ""
             soup = BeautifulSoup(
                 html_text["page_result"], features="html.parser"
             )
             text = soup.get_text().replace("\n", "")
+
             if len(text) > 0:
                 # Convert the text into sentences and extract their offsets.
                 offsets = text_to_sentences_and_offsets(text)[1]
                 for ofs in offsets:
                     # Extract each sentence based on its offset and limit its length.
                     sentence = text[ofs[0] : ofs[1]]
-                    all_sentences.append(
-                        sentence[: self.max_ctx_sentence_length]
-                    )
-            else:
+                    page = page + sentence +'\n'
+                    # all_sentences.append(
+                    #     sentence[: self.max_ctx_sentence_length]
+                    # )
+            # else:
                 # If no text is extracted, add an empty string as a placeholder.
-                all_sentences.append("")
+                # all_sentences.append("")
+            all_sentences.append(page)
+        
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+        all_splits = text_splitter.create_documents(all_sentences)
 
-        # Generate embeddings for all sentences and the query.
-        all_embeddings = self.sentence_model.encode(
-            all_sentences, normalize_embeddings=True
-        )
-        query_embedding = self.sentence_model.encode(
-            query, normalize_embeddings=True
-        )[None, :]
+        # model_name = "sentence-transformers/all-mpnet-base-v2"
+        model_kwargs = {"device": "cuda"}
+        embeddings = HuggingFaceEmbeddings(model_name="models/sentence-transformers/all-MiniLM-L6-v2", model_kwargs=model_kwargs)
 
-        # Calculate cosine similarity between query and sentence embeddings, and select the top sentences.
-        cosine_scores = (all_embeddings * query_embedding).sum(1)
-        top_sentences = np.array(all_sentences)[
-            (-cosine_scores).argsort()[: self.num_context]
-        ]
+        vectordb = FAISS.from_documents(documents=all_splits, embedding=embeddings) # persist_directory="chroma_db"
+        retriever = vectordb.as_retriever(search_kwargs  = {'k': self.num_context}, )
 
-        # Format the top sentences as references in the model's prompt template.
+        docs = retriever.get_relevant_documents(query)
+        top_sentences = []
+        for i in range(self.num_context):
+            top_sentences.append(docs[i].page_content)
+        
+        top_sentences = np.array(top_sentences)
+        # print(query)
+        # print('\n\n')
+        # print(docs[0].page_content)
+        # hfp = HuggingFacePipeline(pipeline=self.generation_pipe)
+        
+        # qa = RetrievalQA.from_chain_type(
+        #                     llm=hfp, 
+        #                     chain_type="stuff", 
+        #                     retriever=retriever, 
+        #                     verbose=True
+        #                 )
+        # result = qa.run(query)
+        # print(docs)
+        # # Generate embeddings for all sentences and the query.
+        # all_embeddings = self.sentence_model.encode(
+        #     all_sentences, normalize_embeddings=True
+        # )
+        # query_embedding = self.sentence_model.encode(
+        #     query, normalize_embeddings=True
+        # )[None, :]
+
+        # # Calculate cosine similarity between query and sentence embeddings, and select the top sentences.
+        # cosine_scores = (all_embeddings * query_embedding).sum(1)
+        # top_sentences = np.array(all_sentences)[
+        #     (-cosine_scores).argsort()[: self.num_context]
+        # ]
+
+        # # Calculate BM25 scores between the query and each sentence.
+        # bm25 = BM25Okapi(all_sentences)
+        # bm25_scores = bm25.get_scores(query)
+
+        # # Sort the sentences based on BM25 scores and select the top sentences.
+        # sorted_sentences = [
+        #     sentence
+        #     for score, sentence in sorted(
+        #         zip(bm25_scores, all_sentences), reverse=True
+        #     )
+        # ]
+        # top_sentences = sorted_sentences[: self.num_context]
+
+        #Format the top sentences as references in the model's prompt template.
         references = ""
         for snippet in top_sentences:
             references += "<DOC>\n" + snippet + "\n</DOC>\n"
@@ -167,11 +231,13 @@ class RAGModel:
         final_prompt = self.prompt_template.format(
             query=query, references=references
         )
-
+        print('\n\n')
+        print(final_prompt)
+        print('\n\n')
         # Generate an answer using the formatted prompt.
         result = self.generation_pipe(final_prompt)
         result = result[0]["generated_text"]
-
+        print(result)
         try:
             # Extract the answer from the generated text.
             answer = result.split("### Answer\n")[-1]
@@ -182,4 +248,4 @@ class RAGModel:
         # Trim the prediction to a maximum of 75 tokens (this function needs to be defined).
         trimmed_answer = trim_predictions_to_max_token_length(answer)
 
-        return trimmed_answer
+        return answer #trimmed_answer

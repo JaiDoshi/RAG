@@ -175,6 +175,8 @@ if __name__ == "__main__":
     UserModel = RAGModel
 
     DATASET_PATH = sys.argv[2] #"example_data/dev_data.jsonl.bz2"
+
+    Additional_Arg = sys.argv[3]
     
     if DATASET_PATH == "example_data/dev_data.jsonl.bz2":
         dataset_name = 'dev_data'
@@ -190,7 +192,7 @@ if __name__ == "__main__":
     
     df = pd.DataFrame.from_dict(predictions)
 
-    df.to_csv(f'{model_name}_{dataset_name}.csv', index=False)  
+    df.to_csv(f'{model_name}_{dataset_name}_{Additional_Arg}.csv', index=False)  
     #Printing Predictions
     for i in range(len(predictions)):
         print(predictions[i])

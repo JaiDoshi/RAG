@@ -182,11 +182,12 @@ class RAGModel:
         docs = ensemble_retriever.get_relevant_documents(query)
 
         top_sentences = []
-        for i in range(self.num_context):
+        for i in range(len(docs)):
             top_sentences.append(docs[i].page_content)
         
         top_sentences = np.array(top_sentences)
-
+        top_sentences = top_sentences[0:10]
+        print(top_sentences[0])
         #Format the top sentences as references in the model's prompt template.
         references = ""
         for snippet in top_sentences:

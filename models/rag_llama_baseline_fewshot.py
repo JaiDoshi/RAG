@@ -52,7 +52,7 @@ class RAGModel:
         """
         # Load a sentence transformer model optimized for sentence embeddings, using CUDA if available.
         self.sentence_model = SentenceTransformer(
-            "models/sentence-transformers/all-MiniLM-L6-v2", device="cuda"
+            "models/sentence-transformers/all-mpnet-base-v2", device="cuda"
         )
 
         # Define the number of context sentences to consider for generating an answer.
@@ -115,8 +115,8 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens=75
-            # temperature=0.3
+            max_new_tokens=75,
+            temperature=0.3
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:

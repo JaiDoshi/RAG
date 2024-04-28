@@ -159,8 +159,8 @@ class RAGModel:
         ]
         query_prompt = """
         Example 1:
-        Input Query: when did one for all start performing together?
-        Expected Output Query: When did "One for All" start performing together?
+        Input Query: when did one direction start performing together?
+        Expected Output Query: When did "One Direction" start performing together?
 
         Example 2:
         Input Query: for from russia with love, can you tell me who was the director?

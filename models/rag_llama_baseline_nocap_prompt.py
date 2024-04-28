@@ -99,6 +99,7 @@ class RAGModel:
             model=self.llm,
             tokenizer=self.tokenizer,
             max_new_tokens=75,
+            temperature=0.3,
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:
@@ -168,7 +169,7 @@ class RAGModel:
             query=query, references=references
         )
         messages = [
-            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and references, answer the question in short (less than 30 words). Output only the answer without any additional explanation. 
+            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and references, answer the question in short. Output only the answer without any additional explanation. 
              """},
             {"role": "user", "content": final_prompt},
         ]   

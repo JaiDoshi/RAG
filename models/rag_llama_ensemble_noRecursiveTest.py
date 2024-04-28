@@ -180,8 +180,9 @@ class RAGModel:
             top_sentences.append(docs[i].page_content)
         
         top_sentences = np.array(top_sentences)
+        print(top_sentences.shape)
         top_sentences = top_sentences[0:10]
-        #print(top_sentences[0])
+
         #Format the top sentences as references in the model's prompt template.
         references = ""
         for snippet in top_sentences:

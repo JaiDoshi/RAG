@@ -75,7 +75,6 @@ class RAGModel:
 
         # Template for formatting the input to the language model, including placeholders for the question and references.
         self.prompt_template = """
-        Based on ONLY the question and references provided, answer the question in short (less than 30 words).
         ### Question
         {query}
 
@@ -112,7 +111,8 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens=75
+            max_new_tokens=75,
+            temperature = 0.3
             # return_full_text= False
         )
         self.generation_pipe2 = pipeline(
@@ -170,7 +170,7 @@ class RAGModel:
                 # all_sentences.append("")
             all_sentences.append(page)
         
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size= 1000, chunk_overlap=50)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size= 750, chunk_overlap=75)
         all_splits = text_splitter.create_documents(all_sentences)
 
         # model_name = "sentence-transformers/all-mpnet-base-v2"
@@ -185,8 +185,7 @@ class RAGModel:
 
         compressor.llm_chain.prompt.template = """
         ###### RESPONSE #######
-        Given the following question and context, extract any part of the context that is relevant to answer the question. If none of the context is relevant return NO_OUTPUT. 
-
+        Given the following question and context, extract any part of the context *AS IS* that is relevant to answer the question. If none of the context is relevant return NO_OUTPUT. 
         > Question: {question}
         > Context:
         >>>
@@ -201,14 +200,15 @@ class RAGModel:
         docs = compression_retriever.invoke(query)
 
         top_sentences = []
-        for i in range(self.num_context):
+        for i in range(len(docs)):
             if 'NO_OUTPUT' not in docs[i].page_content:
                 top_sentences.append(docs[i].page_content)
 
-        print(f"Docs: {docs} \n")
+        # print(f"Docs: {docs} \n")
         
         top_sentences = np.array(top_sentences)
-        print(f"top_sentences: {top_sentences} \n")
+        # print(f"top_sentences: {top_sentences} \n")
+        print(top_sentences.shape)
         #Format the top sentences as references in the model's prompt template.
         references = ""
         for snippet in top_sentences:
@@ -221,18 +221,37 @@ class RAGModel:
         )
         print(f"final_prompt: {final_prompt} \n")
         # Generate an answer using the formatted prompt.
-        result = self.generation_pipe(final_prompt)
-        result = result[0]["generated_text"]
+        messages = [
+            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and references, answer the question in short. Output only the answer without any additional explanation. 
+             """},
+            {"role": "user", "content": final_prompt},
+        ]   
 
-        print(f"result: {result} \n")
+        prompt = self.generation_pipe.tokenizer.apply_chat_template(
+                messages, 
+                tokenize=False, 
+                add_generation_prompt=True
+        )
+
+        terminators = [
+            self.generation_pipe.tokenizer.eos_token_id,
+            self.generation_pipe.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
+        # Generate an answer using the formatted prompt.
+        result = self.generation_pipe(prompt, eos_token_id=terminators)
+        result = result[0]["generated_text"]
+        #print(result)
+
         try:
             # Extract the answer from the generated text.
-            answer = result.split("### Answer\n")[-1]
+            answer = result.split("<|end_header_id|>")[-1]
         except IndexError:
             # If the model fails to generate an answer, return a default response.
             answer = "I don't know"
 
+
         # Trim the prediction to a maximum of 75 tokens (this function needs to be defined).
         trimmed_answer = trim_predictions_to_max_token_length(answer)
 
-        return answer
+        return trimmed_answer

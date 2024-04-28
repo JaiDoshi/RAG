@@ -99,7 +99,7 @@ class RAGModel:
             model=self.llm,
             tokenizer=self.tokenizer,
             max_new_tokens=75,
-            temperature=0.3,
+            temperature=0.3
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:

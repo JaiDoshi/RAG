@@ -114,7 +114,8 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens=50,
+            max_new_tokens=75,
+            temperature=0.3
         )
 
     def generate_answer(self, query: str, search_results: List[Dict]) -> str:
@@ -164,7 +165,7 @@ class RAGModel:
                 # all_sentences.append("")
             all_sentences.append(page)
         
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=750, chunk_overlap=75)
         all_splits = text_splitter.create_documents(all_sentences)
 
         # model_name = "sentence-transformers/all-mpnet-base-v2"
@@ -186,23 +187,45 @@ class RAGModel:
         for snippet in top_sentences:
             references += "<DOC>\n" + snippet + "\n</DOC>\n"
         references = " ".join(
-            references.split()[:500]
+            references.split()[:750]
         )  # Limit the length of references to fit the model's input size.
         final_prompt = self.prompt_template.format(
             query=query, references=references
         )
+
+        messages = [
+            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and references, answer the question in short. Output only the answer without any additional explanation. 
+             """},
+            {"role": "user", "content": final_prompt},
+        ]   
+
+        prompt = self.generation_pipe.tokenizer.apply_chat_template(
+                messages, 
+                tokenize=False, 
+                add_generation_prompt=True
+        )
+
+        terminators = [
+            self.generation_pipe.tokenizer.eos_token_id,
+            self.generation_pipe.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
         # Generate an answer using the formatted prompt.
-        result = self.generation_pipe(final_prompt)
+        result = self.generation_pipe(prompt, eos_token_id=terminators)
         result = result[0]["generated_text"]
-        print(result)
+        #print(result)
+
         try:
             # Extract the answer from the generated text.
-            answer = result.split("### Answer\n")[-1]
+            answer = result.split("<|end_header_id|>")[-1]
         except IndexError:
             # If the model fails to generate an answer, return a default response.
             answer = "I don't know"
 
+
         # Trim the prediction to a maximum of 75 tokens (this function needs to be defined).
         trimmed_answer = trim_predictions_to_max_token_length(answer)
 
-        return answer #trimmed_answer
+        return trimmed_answer
+    
+

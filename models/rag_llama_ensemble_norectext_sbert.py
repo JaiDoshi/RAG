@@ -181,7 +181,7 @@ class RAGModel:
         
         top_sentences = np.array(top_sentences)
         print(top_sentences.shape)
-        top_sentences = top_sentences[0:10]
+        top_sentences = top_sentences[0:15]
 
         #Format the top sentences as references in the model's prompt template.
         references = ""

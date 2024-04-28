@@ -174,7 +174,12 @@ if __name__ == "__main__":
     exec(f"from models.{model_name} import RAGModel")
     UserModel = RAGModel
 
-    DATASET_PATH = "example_data/dev_data.jsonl.bz2"
+    DATASET_PATH = sys.argv[2] #"example_data/dev_data.jsonl.bz2"
+    
+    if DATASET_PATH == "example_data/dev_data.jsonl.bz2":
+        dataset_name = 'dev_data'
+    else: dataset_name = 'test_data'
+
     EVALUATION_MODEL_NAME = os.getenv(
         "EVALUATION_MODEL_NAME", "gpt-4-0125-preview"
     )
@@ -185,7 +190,7 @@ if __name__ == "__main__":
     
     df = pd.DataFrame.from_dict(predictions)
 
-    df.to_csv(f'{model_name}.csv', index=False)  
+    df.to_csv(f'{model_name}_{dataset_name}.csv', index=False)  
     #Printing Predictions
     for i in range(len(predictions)):
         print(predictions[i])

@@ -62,25 +62,6 @@ class RAGModel:
 
         # Template for formatting the input to the language model, including placeholders for the question and references.
         self.prompt_template = """
-        Example 1:
-        ### Question
-        Who is the oldest among the band members of the "Balocco Girls"?
-        ### References 
-        Balocco Girls" has members Tina Dribble, Bailey Baxter and Milton Chase.
-        Tina Dribble was born in 1995. Bailey Baxter was born in 1993. Milton Chase was born in 2001.
-        ### Answer
-        Bailey Baxter is the oldest. Since she was born in 1993, which is before both 1995 and 2001.
-
-        Example 2:
-        ### Question
-        Who won the cricket world cup in 2024?
-        ### References 
-        India won the cricket world cup in 2011.
-        Australia won the ICC world cup in 2023.
-        In 2019, England were the winners of the ICC Cricket World Cup.
-        ### Answer
-        There is no information about 2024 world cup in the references.
-
         ### Question
         {query}
         ### References 
@@ -186,8 +167,25 @@ class RAGModel:
             query=query, references=references
         )
         messages = [
-            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and references, answer the question in short. 
-             """},
+            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and corresponding references, answer the question in short. Here are a couple examples:
+             Example 1:
+             ### Question
+             Who is the oldest among the band members of the "Balocco Girls"?
+             ### References 
+             Balocco Girls" has members Tina Dribble, Bailey Baxter and Milton Chase.
+             Tina Dribble was born in 1995. Bailey Baxter was born in 1993. Milton Chase was born in 2001.
+             ### Answer
+             Bailey Baxter is the oldest. Since she was born in 1993, which is before both 1995 and 2001.
+
+             Example 2:
+             ### Question
+             Who won the cricket world cup in 2024?
+             ### References 
+             India won the cricket world cup in 2011.
+             Australia won the ICC world cup in 2023.
+             In 2019, England were the winners of the ICC Cricket World Cup.
+             ### Answer
+             There is no information about 2024 world cup in the references."""},
             {"role": "user", "content": final_prompt},
         ]   
 

@@ -119,7 +119,7 @@ class RAGModel:
             task="text-generation",
             model=self.llm,
             tokenizer=self.tokenizer,
-            max_new_tokens= 30,
+            max_new_tokens= 50,
             return_full_text= False
         )
 

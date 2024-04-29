@@ -24,7 +24,7 @@ class RAGModel:
         """
         # Load a sentence transformer model optimized for sentence embeddings, using CUDA if available.
         self.sentence_model = SentenceTransformer(
-            "models/sentence-transformers/all-MiniLM-L6-v2", device="cuda"
+            "models/sentence-transformers/all-mpnet-base-v2", device="cuda"
         )
 
         # Define the number of context sentences to consider for generating an answer.
@@ -182,7 +182,7 @@ class RAGModel:
         final_prompt = self.prompt_template.format(
             query=expanded_query, references=references
         )
-        
+
         messages = [
             {"role": "system", "content": """You are a Retrieval Augmented model. Based on the given question and corresponding references, answer the question in short. Here are a couple examples:
              Example 1:

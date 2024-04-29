@@ -143,7 +143,7 @@ class RAGModel:
             soup = BeautifulSoup(
                 html_text["page_result"], features="html.parser"
             )
-            text = soup.get_text().replace("\n", "")
+            text = soup.get_text()
 
             if len(text) > 0:
                 # Convert the text into sentences and extract their offsets.
@@ -187,7 +187,7 @@ class RAGModel:
         top_sentences = np.array(top_sentences)
         print(top_sentences.shape)
         top_sentences = top_sentences[0:10]
-        #print(top_sentences[0])
+    
         #Format the top sentences as references in the model's prompt template.
         references = ""
         for snippet in top_sentences:
@@ -198,11 +198,29 @@ class RAGModel:
         final_prompt = self.prompt_template.format(
             query=query, references=references
         )
+        
         messages = [
-            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and references, answer the question in short. Output only the answer without any additional explanation. 
-             """},
+            {"role": "system", "content": """You are a Retrieval Augmented model. Based on the given question and corresponding references, answer the question in short. Here are a couple examples:
+             Example 1:
+             ### Question
+             Who is the oldest among the band members of the "Balocco Girls"?
+             ### References 
+             Balocco Girls" has members Tina Dribble, Bailey Baxter and Milton Chase.
+             Tina Dribble was born in 1995. Bailey Baxter was born in 1993. Milton Chase was born in 2001.
+             ### Answer
+             Bailey Baxter is the oldest. Since she was born in 1993, which is before both 1995 and 2001.
+
+             Example 2:
+             ### Question
+             Who won the cricket world cup in 2024?
+             ### References 
+             India won the cricket world cup in 2011.
+             Australia won the ICC world cup in 2023.
+             In 2019, England were the winners of the ICC Cricket World Cup.
+             ### Answer
+             There is no information about 2024 world cup in the references."""},
             {"role": "user", "content": final_prompt},
-        ]   
+        ]    
 
         prompt = self.generation_pipe.tokenizer.apply_chat_template(
                 messages, 

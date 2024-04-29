@@ -1,0 +1,141 @@
+query,domain,question_type,ground_truth,prediction
+which player has the most career assists in the nba among players who have never been named to an all-star game?,sports,simple_w_condition,"andre miller has the most career assists in the nba among players who have never been named to an all-star game, with 8,524 assists.","andre miller has the most career assists in the nba among players who have never been named to an all-star game, with 8,524 assists in his career."
+what are the names of kris jenner's children?,open,set,"kourtney kardashian barker, kim kardashian, khloé kardashian, rob kardashian, kendall jenner, and kylie jenner","kris jenner has six children: kourtney, kim, khloé, rob, kendall, and kylie."
+what is the largest animal found in europe?,open,simple_w_condition,the largest animal found in europe is the european bison.,"the largest animal found in europe is the european bison, which can reach a weight of 2200 pounds and stand up to 6 feet tall."
+what's the date of after 7's last song/album?,music,simple,1997-03-11,"there is no information about the date of after 7's last song/album in the references provided. the references only mention rihanna's plans to release her ninth studio album, but do not provide a specific date or mention ""after 7"" at all."
+what's the name of the movie that received the oscar for the best documentary feature film in 1995?,movie,simple,maya lin: a strong clear vision,there is no information about the movie that received the oscar for the best documentary feature film in 1995 in the references provided.
+"which movie won the academy award for best picture in 2018, categorized under the fantasy genre?",movie,simple_w_condition,the shape of water,"there is no movie that won the academy award for best picture in 2018, categorized under the fantasy genre. the shape of water, a fantasy film, won the best picture award in 2018, but it is not categorized under the fantasy genre."
+when did one for all start performing together?,music,simple,1993,"the references do not mention one for all starting to perform together. the references are actually about a different group called one direction, which was formed in 2010 and started performing together then."
+how many points did darius miles get for free throws in the game on 2000-11-02?,sports,aggregation,5,there is no information about darius miles getting points for free throws on 2000-11-02 in the provided references.
+what are the top 3 tech stocks that rise in value in january 2024,finance,set,"top 3 tech stocks that rise in value in january 2024 are nvidia, oracle and netflix","based on the references provided, the top 3 tech stocks that rose in value in january 2024 are:
+
+1. alphabet (goog, googl)
+2. meta platforms (meta)
+3. nvidia"
+"which musical tempos are people streaming the most, hip-hop or country songs?",music,comparison,hip-hop,"according to the references, people are streaming hip-hop songs the most, as they are overwhelmingly overrepresented in the most-streamed tempo range (67.6%) and are the most popular streaming genre in the u.s. (29.9%)."
+how many instagram followers do the top three most followed footballers have on average?,open,post-processing,~447.33 million followers,"### answer
+according to the references, the top three most followed footballers on instagram are cristiano ronaldo, lionel messi, and neymar. the references do not provide the exact number of followers for zlatan ibrahimovic, paul pogba, and ronaldinho, but they are mentioned"
+what's the latest film that walt becker has directed?,movie,simple_w_condition,clifford the big red dog,the latest film that walt becker has directed is clifford the big red dog (2021).
+"for the fall of saigon, can you tell me who was the main director?",movie,simple,michael dutfield,"### answer
+there is no information about a ""main director"" for the fall of saigon in the provided references. the references mention various individuals, such as general duong van minh, president minh, and ambassador graham martin, but do not mention a ""main director"" for the event."
+when was the oldest company in the dow jones added to the index?,finance,multi-hop,"the oldest company in the dow jones, procter & gamble, was added on may 6, 1932.",the oldest company in the dow jones industrial average was added to the index in 1896.
+"which is a better investment, gold or silver, when considering long-term return?",finance,comparison,gold,"based on the references provided, it seems that the majority of the sources recommend gold as a better investment for long-term returns, citing its stability, predictability, and lower risk. while silver is considered a good option for those willing to take on more risk and seeking higher returns, gold is generally recommended for long-term investors."
+what's the name of nashville's hockey team?,sports,simple,nashville predators,the name of nashville's hockey team is the nashville predators.
+how many animated movies has reese witherspoon been in?,open,post-processing,reese witherspoon has been in 4 animated movies.,"according to the references, reese witherspoon has been in at least 20 animated movies, but it's not specified which ones they are."
+which player took home grand slam championship in 2017?,sports,simple_w_condition,rafael nadal won his 16th grand slam title at the 2017 u.s. open,"according to the references, serena williams won the grand slam championship in 2017."
+which country is the largest gold producer?,open,aggregation,china,"### answer
+china is the largest gold producer, with a production of 330 metric tons (mt)."
+what was the total value of all initial public offerings in the americas for the technology sector in 2022?,finance,simple_w_condition,the total value of all ipos in the americas for the technology sector was $1.6 billion in 2022.,"there is no information provided in the references about the total value of all initial public offerings in the americas for the technology sector in 2022. the references only provide information about market capitalization of selected u.s. tech and internet companies in 2006 and 2020, as well as the number of"
+how many companies have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissions?,finance,aggregation,"there are many companies that have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissons, such as microsoft, siemens and amazon.","based on the provided references, it is not possible to determine how many companies have a market capitalization of over $25 billion and pledged to reduce greenhouse gas emissions. the references provided do not mention market capitalization or specific company pledges to reduce emissions. they only discuss the top 20 companies responsible for 3"
+what is the largest lake in the us?,open,simple_w_condition,lake superior,"### answer
+lake superior is the largest lake in the united states by volume (2,904 cubic miles) and surface area (31,700 square miles)."
+when is rihanna planning to launch her new upcoming podcast,open,false_premise,invalid question,"there is no information about rihanna planning to launch a new podcast. the references provided only discuss her music and album releases, but not a podcast."
+how much is income tax in california?,finance,simple,the state income tax rates range from 1% to 12.3%,the income tax rates in california range from 1% to 13.3%. the top tax rate of 13.3% applies to income above $1 million for single filers and $2 million for joint filers.
+"who has had more number one hits on the us billboard dance/electronic songs chart, calvin harris or the chainsmokers?",music,comparison,"the chainsmokers have had more number one hits on the us billboard dance/electronic songs chart than calvin harris, with 6 number one hits compared to harris' 6.","calvin harris has had more number one hits on the us billboard dance/electronic songs chart, with 16, compared to the chainsmokers' 6."
+what is the name of priyanka chopra's fashion line?,open,false_premise,invalid question,priyanka chopra does not have a fashion line.
+which players have scored over 200 goals in the epl?,sports,set,"alan shearer, harry kane, and wayne rooney have all won scored over 200 goals in the epl.","according to the references, the players who have scored over 200 goals in the epl are:
+
+1. alan shearer (260 goals)
+2. wayne rooney (208 goals)
+
+note that these are the only two players mentioned in the references who have achieved this milestone."
+"in the span of 2021, orlando magic won how many of their games?",sports,aggregation,25,the orlando magic did not win any games in the span of 2021.
+on the most recent friday what was the open price of gfi?,finance,simple,$12.52,"### answer
+the open price of gfi on the most recent friday is $13.18."
+is the price of meta stock higher or lower than it was at the yearly open?,finance,comparison,higher,"### answer
+the price of meta stock is higher than its yearly open."
+"who has won more atp singles titles, roger federer or rafael nadal?",sports,comparison,"rafael nadal has won more atp singles titles than roger federer, with 86 titles compared to federer's 82.","### answer
+there is no information in the references about the number of atp singles titles won by roger federer and rafael nadal. the references only provide information about their grand slam titles, matches won, and head-to-head records on different surfaces."
+in which year was 10 magazine (british magazine) launched?,open,simple,2001,"### answer
+the references do not mention the launch year of the 10 magazine (british magazine)."
+"price change of advanced micro devices on december 25, 2023, compared to the closing price on the previous trading day?",finance,false_premise,invalid question,"there is no information about the price change of advanced micro devices (amd) on december 25, 2023, compared to the closing price on the previous trading day in the given references."
+who did the kansas city chiefs beat in the 2023-2024 playoffs?,sports,set,"miami dolphins, buffalo bills, baltimore ravens, san franciso 49ers","based on the provided references, there is no information about the kansas city chiefs' playoff opponents in the 2023-2024 season. the references only mention the chiefs' regular season schedule and their performance in the 2023 postseason, but do not provide information about their opponents in the"
+can i make sashimi with slow cookers?,open,simple,no,"no, you cannot make sashimi with a slow cooker. the references provided do not mention slow cookers as a method for preparing sashimi. in fact, the references suggest using a slicer, mandolin, or julienne to prepare sashimi, which is typically done with raw fish."
+how many years has the band radiohead been active for?,music,aggregation,"radiohead has been active for 39 years, since 1985.","radiohead has been active for approximately 37 years, as they formed in 1985 as ""on a friday"" and adopted their current name in 1992."
+how many music videos has the band radiohead released?,music,aggregation,radiohead has released a total of 51 music videos.,"### answer
+according to the references, radiohead has released music videos for the following songs:
+1. ""creep"" (1992)
+2. ""7 television commercials"" (a music video compilation)
+3. ""airbag/how am i driving?"" (a music video compilation"
+"during the 2022-12 season, did  chicago bulls score more total points in games than milwaukee bucks?",sports,comparison,true,"based on the provided references, we can see that the chicago bulls and milwaukee bucks played on december 28, 2022, and the final score was 119-113 in favor of the bulls. therefore, the answer to the question is yes, the chicago bulls scored more total"
+what is the price of bitcoin when it launch in 2015?,finance,false_premise,invalid question,"there is no information about the price of bitcoin when it launched in 2015 in the provided references. the earliest available data is from november 20, 2015, according to google finance."
+what are the names of all the movies in the the godfather franchise?,movie,set,"the names of the movies in the the godfather franchise are ""the godfather"", ""the godfather part ii"", and ""the godfather part iii"".","here are the names of all the movies in the godfather franchise:
+
+1. the godfather (1972)
+2. the godfather: part ii (1974)
+3. the godfather: part iii (1990)
+
+note: there is no godfather part iv, as"
+how many godzilla movies millie bobby brown has been in,open,aggregation,2,millie bobby brown has been in at least 2 godzilla movies.
+how did the nasdaq composite index perform the year of the covid crash?,finance,multi-hop,+43.64%,the nasdaq composite index experienced a significant decline in 2020 due to the covid-19 pandemic.
+what movies did emilia clarke play in last 5 years,open,set,"the pod generation, last christmas, above suspicion","based on the provided references, emilia clarke's movies in the last 5 years (2019-2024) are:
+
+* terminator genisys (2015) - this movie was released in 2015, which is outside the 5-year window. however"
+on which days did the bq stock closes lower last week?,finance,set,"2024-02-12, 2024-02-13, 2024-02-15, 2024-02-16","### answer
+there is no information about the bq stock closing lower last week in the references provided."
+how much does a super bowl ad cost?,sports,simple,~$7 million for 30 seconds of ad time.,"according to the references, the cost of a 30-second super bowl ad in 2024 is $7 million."
+"what album did bad bunny release in 2022, which included the songs ""moscow mule"" and ""party""?",music,simple_w_condition,"bad bunny released the album ""un verano sin ti"" in 2022, which included the songs ""moscow mule"" and ""party"".","the album ""un verano sin ti"" by bad bunny, which includes the songs ""moscow mule"" and ""party"", was released in 2022."
+what is the ex-dividend date of microsoft in the 1st qtr of 2024,finance,simple_w_condition,"the ex-dividend date of microsoft in the 1st qtr of 2024 is feb 14, 2024","the ex-dividend date of microsoft in the 1st quarter of 2024 is may 15, 2024."
+when did the current president of the us get married?,open,multi-hop,"the current president of the us, joe biden, got married on june 17, 1977.","grover cleveland got married to frances folsom on june 2, 1886."
+"what album did kings of leon release in 2013, which included the songs ""wait for me"" and ""family tree""?",music,simple_w_condition,"kings of leon released the album ""mechanical bull"" in 2013, which included the songs ""wait for me"" and ""family tree"".","the album ""mechanical bull"" by kings of leon, released in 2013, includes the songs ""wait for me"" and ""family tree""."
+what was cj stroud's touchdown to interception ratio in his rookie season?,sports,post-processing,4.6,there is no information about c.j. stroud's touchdown to interception ratio in his rookie season in the provided references.
+at what age did miley cyrus come out as gender fluid,open,multi-hop,22 years old,"miley cyrus has not come out as gender fluid. she has expressed that she doesn't feel like a girl and doesn't feel like a boy, and has described herself as gender fluid in a 2015 interview."
+who has more followers? donald trump or joe biden,open,comparison,joe biden,"according to the references, joe biden's campaign account on truth social has more followers than donald trump's campaign account."
+who is the starting small forward for the team that is currently number one in the nba's eastern conference?,sports,multi-hop,"jayson tatum is the starting small forward for the boston celtics, currently the number one in the nba's eastern conference.","based on the provided references, there is no information about the current number one team in the nba's eastern conference. the references only provide information about the top small forwards in the league for the 2021-22 and 2023-24 seasons, but do not mention the current standings or ranking of teams"
+which film took longer to produce inside out or coraline?,movie,comparison,"inside out took longer at 5 years, coraline took 4 years.","according to the references, coraline took four years to make. there is no information about the production time of inside out."
+was tron the first to use computer-generated imagery (cgi) entirely?,movie,false_premise,invalid question,"tron is not mentioned in the references as the first to use computer-generated imagery (cgi) entirely. the references mention the first use of motion-captured character technology in ""the polar express"" (2004), the first cgi short movie released as completely open-source in ""elephants dream"" (2"
+who wrote the theme song for the movie ghostbusters (1984)?,movie,multi-hop,"ghostbusters was written by ray parker jr., as the theme song to the 1984 film ghostbusters.",ray parker jr. wrote the theme song for the movie ghostbusters (1984).
+who was the first actress to play the role of wonder woman in a live-action movie?,movie,multi-hop,"cathy lee crosby was the first actress to play the role of wonder woman in a live-action movie, in the 1974 film wonder woman.","cathy lee crosby was the first actress to play the role of wonder woman in a live-action movie, starring in the made-for-tv movie ""wonder woman"" in 1974."
+"who is older, will farrell or mark wahlberg?",open,comparison,will farrell is older at the age of 56.,"according to the references, mark wahlberg was born on june 5, 1971, and will ferrell was not mentioned in the references. therefore, it is not possible to determine who is older between mark wahlberg and will ferrell based on the provided information."
+who was the coach of the team that won the nba championship last season?,sports,multi-hop,"michael malone, who coaches the denver nuggets, was the coach of the team that won the nba championship last season.","based on the references provided, the coach of the team that won the nba championship last season is not specified. the references only mention coaches who won championships in the past, but not the most recent one."
+blmn average closing price last week?,finance,aggregation,$26.59,"### answer
+there is no information about the average closing price of bloomin brands last week in the references. the references only provide information about the highest and lowest price, 52-week high and low, and the current stock price, but not the average closing price for last week."
+"who is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together""?",music,multi-hop,"taylor swift is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together"", which have become chart-topping hits and solidified her status as a pop culture icon.","based on the given references, it is not possible to identify the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together"". the references provided do not"
+"when was prince, brother of michael jackson, born?",music,false_premise,invalid question,"there is no brother of michael jackson named prince. michael jackson had two children, michael joseph jackson jr. (also known as prince michael jackson ii) and paris michael katherine jackson, but no brother named prince."
+what was newcastle utd's score last week?,sports,false_premise,invalid question,there is no information about newcastle united's score last week in the provided references.
+what percentage of gross for pixar's 2020 movies came from outside the us and canada?,movie,post-processing,74.57%,"there is no information provided about the percentage of gross for pixar's 2020 movies that came from outside the us and canada. the references only provide information about the highest-grossing pixar animated movies in the us and canada as of 2024, but not specifically for 2020"
+who was the oppinent that denver nuggets faced in 2023-01-11 in a thrilling game?,sports,false_premise,invalid question,there is no information about a game played by the denver nuggets on 2023-01-11 in the provided references.
+who was the primary songwriter for the beatles?,music,false_premise,invalid question,"according to the references, the primary songwriter for the beatles is paul mccartney and john lennon, as they shared songwriting credits for most of their songs."
+what was the average gross for all movies in the harry potter series in the uk?,movie,post-processing,"£62,895,676.6","to find the average gross for all movies in the harry potter series in the uk, we need to find the total box office gross for the series in the uk and then divide it by the number of movies.
+
+according to the references, the box office gross for each movie in the series is not provided separately for the uk. however"
+"how many people are casted in the movie ""life of pi""",movie,aggregation,41 cast members,"according to the references, the main cast of the movie ""life of pi"" includes:
+
+* suraj sharma as pi patel
+* irrfan khan as richard parker
+* tabu as gita patel
+* adil hussain as saturje patel
+* arshdeep kohli as ornith"
+what year did the simpsons stop airing?,movie,false_premise,invalid question,"the simpsons did not stop airing. according to the references, the series has been syndicated to local broadcast stations in nearly all markets throughout the united states since september 1994, and it was still airing on fxx's network in 2014."
+who are the top three artists with the most monthly listeners on spotify currently?,music,set,"the weeknd, taylor swift, drake","### answer
+according to the references, as of january 2024, the top three artists with the most monthly listeners on spotify are:
+
+1. the weeknd - 100.9 million monthly listeners
+2. miley cyrus - 82 million monthly listeners"
+"who were the lead singers on the album ""dark side of the moon"" by pink floyd?",music,set,"the lead singers on the album ""dark side of the moon"" by pink floyd were roger waters and david gilmour.","### answer
+the lead singers on the album ""dark side of the moon"" by pink floyd were:
+
+* roger waters
+* david gilmour
+* rick wright"
+"which movie has a higher rotten tomatoes score, the dark knight or the shawshank redemption?",movie,comparison,the shawshank redemption has a higher rotten tomatoes score with 91% compared to the dark knight's 94%.,"the dark knight is not mentioned in the references, so it's not possible to compare its rotten tomatoes score to the shawshank redemption. the references only mention the shawshank redemption's score as 2."
+how much of the total cryptocurrency market cap is ethereum?,finance,post-processing,17.1%,"based on the provided references, it is not possible to determine the exact percentage of the total cryptocurrency market cap that ethereum represents, as the references only provide information on ethereum's market capitalization up until september 17, 2023."
+who were the stars of living in bondage: breaking free?,movie,set,"ramsey nouah, kanayo o. kanayo, swanky j.k.a., kenneth okonkwo, enyinna nwigwe, shawn faqua, munachi abii, nancy isime, bob-manuel udokwu, ebele okaro-onyiuke, zulu adigwe, ndidi obi","the stars of ""living in bondage: breaking free"" are:
+
+* ramsey nouah
+* kenneth okonkwo
+* kanayo o. kanayo
+* swanky jka
+* bob manuel udokwu
+* enyinna nwigwe
+* nancy isime"
+how many games behind from the last playoff spot are the jazz?,sports,post-processing,2.5 games behind,"according to the references, the utah jazz missed the playoffs in 2023. as of 2024, the season is ongoing, and the jazz have a record of 28-35. since they missed the playoffs last year, they are currently behind the last playoff spot by 9 games ("
+how much have digital album sales decreased in the us from 2013 to 2019?,music,post-processing,78.7 million less or a -66.7% decrease,"### answer
+there is no information provided about digital album sales in the us from 2013 to 2019. the references only provide information about album sales in general, cd sales, and vinyl album sales, but not specifically about digital album sales in the us from 2013 to 2019."
+what is the first song on drake's second album?,music,multi-hop,"over my dead body is the first song on drake's second album, take care.","the first song on drake's second album is ""over my dead body""."
+how much is tesla's stock price down from its all-time high?,finance,post-processing,$221.83,"according to the references, tesla's all-time high stock price was $414.50 (post-splits) in november 2021. the latest closing stock price as of march 05, 2024 is 180.74. therefore, tesla's"
+how many actors had roles in both life stinks and city slickers?,movie,aggregation,1,"based on the given references, billy crystal and bruno kirby are the only actors who had roles in both ""life stinks"" and ""city slickers""."
+how many streams on average for the top two streamed artic monkeys songs on spotify?,music,post-processing,"~1.97 billion steams per song for ""do i wanna know?"" and ""i wanna be yours""","based on the provided references, i found that the top two streamed arctic monkeys songs on spotify are:
+
+1. ""i wanna be yours"" with 1,422,946,570 streams
+2. ""do i wanna know?"" with 1,221,"

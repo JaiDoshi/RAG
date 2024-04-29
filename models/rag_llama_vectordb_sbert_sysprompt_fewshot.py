@@ -148,7 +148,7 @@ class RAGModel:
             soup = BeautifulSoup(
                 html_text["page_result"], features="html.parser"
             )
-            text = soup.get_text().replace("\n", "")
+            text = soup.get_text().replace()
 
             if len(text) > 0:
                 # Convert the text into sentences and extract their offsets.
@@ -156,7 +156,7 @@ class RAGModel:
                 for ofs in offsets:
                     # Extract each sentence based on its offset and limit its length.
                     sentence = text[ofs[0] : ofs[1]]
-                    page = page + sentence +'\n'
+                    page = page + sentence
                     # all_sentences.append(
                     #     sentence[: self.max_ctx_sentence_length]
                     # )

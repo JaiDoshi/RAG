@@ -167,7 +167,7 @@ class RAGModel:
             query=query, references=references
         )
         messages = [
-            {"role": "system", "content": """You are a Retrieval Augmented model. Based on only the given question and corresponding references, answer the question in short. Here are a couple examples:
+            {"role": "system", "content": """You are a Retrieval Augmented model. Based on the given question and corresponding references, answer the question in short. Here are a couple examples:
              Example 1:
              ### Question
              Who is the oldest among the band members of the "Balocco Girls"?

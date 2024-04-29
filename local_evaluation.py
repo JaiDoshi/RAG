@@ -191,7 +191,7 @@ if __name__ == "__main__":
     predictions = generate_predictions(DATASET_PATH, participant_model)
     
     df = pd.DataFrame.from_dict(predictions)
-
+    df = df[df['domain'] != 'finance']
     df.to_csv(f'{model_name}_{dataset_name}_{Additional_Arg}.csv', index=False)  
     #Printing Predictions
     for i in range(len(predictions)):

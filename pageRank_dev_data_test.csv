@@ -1,0 +1,13 @@
+query,domain,question_type,ground_truth,prediction
+is microsoft office 2019 available in a greater number of languages than microsoft office 2013?,open,comparison,yes,"according to the references, microsoft office 2019 is available in the same number of languages as microsoft office 2013."
+name three celebrities who have been involved in successful collaborations with beauty brands.,open,set,"three celebrities who have been involved in successful collaborations with beauty brands are jennifer aniston (lolavie), kim kardashian (skkn), and selena gomez (rare).","based on the references, three celebrities who have been involved in successful collaborations with beauty brands are:
+
+1. rihanna - fenty beauty
+2. selena gomez - rare beauty
+3. kylie jenner - kylie cosmetics"
+what is the other language between heaven and hell came out in originally?,movie,simple,en,"### answer
+the other language between heaven and hell came out in originally is hebrew."
+how many times has rory mcilroy won the masters tournament?,sports,false_premise,"rory mcilroy has never won the masters tournament, despite being one of the most successful golfers on the pga tour.",rory mcilroy has not won the masters tournament.
+what is the shortest highway in the us in feet?,open,multi-hop,"the shortest highway in the us, i-878 in new york, is only 3,696 feet long.","there is no information about the shortest highway in the us in feet in the provided references. the references only discuss dog breeds and their lifespan, with no mention of highways."
+who was the first actor to play the role of a comic book villain in a live-action movie?,movie,multi-hop,"carol forman was the first actor to play the role of a comic book villain in a live-action movie, in his iconic portrayal of the spider lady in superman, directed by spencer gordon bennet and thomas carr.","based on the provided references, it is not possible to determine who the first actor to play the role of a comic book villain in a live-action movie was. the references do not mention any specific actor playing a comic book villain in a live-action movie. they primarily discuss the casting of actors for various roles in animated and live"
+is dreamworks animation owned by time warner or universal pictures?,movie,comparison,universal pictures,"based on the references, dreamworks animation is owned by nbcuniversal, which is a subsidiary of comcast."

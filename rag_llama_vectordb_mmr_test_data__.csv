@@ -1,0 +1,126 @@
+query,domain,question_type,ground_truth,prediction
+which player has the most career assists in the nba among players who have never been named to an all-star game?,sports,simple_w_condition,"andre miller has the most career assists in the nba among players who have never been named to an all-star game, with 8,524 assists.","according to the references, the player with the most career assists in the nba among players who have never been named to an all-star game is steve miller, with 8,524 assists in his career."
+what are the names of kris jenner's children?,open,set,"kourtney kardashian barker, kim kardashian, khloé kardashian, rob kardashian, kendall jenner, and kylie jenner","kris jenner's children are:
+
+1. kourtney kardashian
+2. kim kardashian
+3. khloé kardashian
+4. rob kardashian
+5. kendall jenner
+6. kylie jenner"
+what is the largest animal found in europe?,open,simple_w_condition,the largest animal found in europe is the european bison.,"according to the references, the largest animal found in europe is the european bison, which can weigh up to 2200 pounds."
+what's the date of after 7's last song/album?,music,simple,1997-03-11,there is no information about after 7's last song/album in the given references.
+what's the name of the movie that received the oscar for the best documentary feature film in 1995?,movie,simple,maya lin: a strong clear vision,"according to the references provided, the academy awards for best documentary feature film in 1995 were not mentioned."
+"which movie won the academy award for best picture in 2018, categorized under the fantasy genre?",movie,simple_w_condition,the shape of water,"the movie ""the shape of water"" won the academy award for best picture in 2018, and it is categorized under the fantasy genre."
+when did one for all start performing together?,music,simple,1993,"the references provided do not mention the formation of one for all as a group. however, according to the reference <doc> history[edit] the group was formed in 1997 for an engagement at smalls jazz club and recorded its first album, too soon to tell, for sharp nine later that year.</doc>,"
+how many points did darius miles get for free throws in the game on 2000-11-02?,sports,aggregation,5,there is no information about darius miles' free throws in the game on 2000-11-02 in the provided references.
+"which musical tempos are people streaming the most, hip-hop or country songs?",music,comparison,hip-hop,"based on the references provided, people are streaming hip-hop songs the most. according to the data, 67.6% of the most-streamed songs were in the 140-149 bpm range, which is a tempo range that is overwhelmingly dominated by hip-hop songs."
+how many instagram followers do the top three most followed footballers have on average?,open,post-processing,~447.33 million followers,"based on the references, the top three most followed footballers are:
+
+1. cristiano ronaldo - 168 million followers
+2. lionel messi - 142 million followers
+3. neymar jr. (not mentioned in the references, but he is often among the top 10"
+what's the latest film that walt becker has directed?,movie,simple_w_condition,clifford the big red dog,"according to the references, walt becker's latest film is ""clifford the big red dog"" (2021), which he directed."
+"for the fall of saigon, can you tell me who was the main director?",movie,simple,michael dutfield,"there is no information about a main director for the fall of saigon in the provided references. the fall of saigon was a historical event, not a film or a project with a director."
+what's the name of nashville's hockey team?,sports,simple,nashville predators,the name of nashville's hockey team is the nashville predators.
+how many animated movies has reese witherspoon been in?,open,post-processing,reese witherspoon has been in 4 animated movies.,reese witherspoon has not been in any animated movies.
+which player took home grand slam championship in 2017?,sports,simple_w_condition,rafael nadal won his 16th grand slam title at the 2017 u.s. open,"according to the references, there is no information about a grand slam championship in 2017. the references only mention the 2017 australian open, which was won by roger federer in the men's singles and serena williams in the women's singles."
+which country is the largest gold producer?,open,aggregation,china,"based on the references provided, china is the largest gold producer, producing 403t of gold in 2012."
+what is the largest lake in the us?,open,simple_w_condition,lake superior,"### answer
+lake superior is the largest lake in the us, with a surface area of 31,700 square miles."
+when is rihanna planning to launch her new upcoming podcast,open,false_premise,invalid question,"there is no information about rihanna planning to launch a new podcast. the references provided are about her music and other projects, but not a podcast."
+"who has had more number one hits on the us billboard dance/electronic songs chart, calvin harris or the chainsmokers?",music,comparison,"the chainsmokers have had more number one hits on the us billboard dance/electronic songs chart than calvin harris, with 6 number one hits compared to harris' 6.","according to the references, calvin harris has had more number one hits on the us billboard dance/electronic songs chart than the chainsmokers."
+what is the name of priyanka chopra's fashion line?,open,false_premise,invalid question,priyanka chopra does not have a fashion line.
+which players have scored over 200 goals in the epl?,sports,set,"alan shearer, harry kane, and wayne rooney have all won scored over 200 goals in the epl.","based on the provided references, the players who have scored over 200 goals in the epl are:
+
+1. les ferdinand - 149 goals
+2. teddy sheringham - 146 goals
+3. robin van persie - 144 goals
+4. mohamed salah -"
+"in the span of 2021, orlando magic won how many of their games?",sports,aggregation,25,"according to the references, the orlando magic played a shortened regular season schedule of 72 games in the 2020-21 season due to the covid-19 pandemic."
+"who has won more atp singles titles, roger federer or rafael nadal?",sports,comparison,"rafael nadal has won more atp singles titles than roger federer, with 86 titles compared to federer's 82.","according to the references, roger federer has won 103 atp titles in his career, while rafael nadal has won 99 atp titles. therefore, roger federer has won more atp singles titles."
+in which year was 10 magazine (british magazine) launched?,open,simple,2001,there is no information about the launch year of 10 magazine (british magazine) in the provided references.
+who did the kansas city chiefs beat in the 2023-2024 playoffs?,sports,set,"miami dolphins, buffalo bills, baltimore ravens, san franciso 49ers","the kansas city chiefs defeated the philadelphia eagles in super bowl 57, winning their second title in four years."
+can i make sashimi with slow cookers?,open,simple,no,"no, you cannot make sashimi with a slow cooker. sashimi is a raw dish that typically requires fresh, high-quality fish, and slow cooking would not be suitable for preparing it. the references provided do not mention slow cookers or any method of cooking fish, but rather focus on preparing sashimi with"
+how many years has the band radiohead been active for?,music,aggregation,"radiohead has been active for 39 years, since 1985.","### answer
+
+according to the references, radiohead was formed in 1987, and their debut album ""pablo honey"" was released in 1993. therefore, as of 1993, radiohead had been active for approximately 6 years."
+how many music videos has the band radiohead released?,music,aggregation,radiohead has released a total of 51 music videos.,"according to the references, radiohead has released numerous music videos, but the exact number is not specified. the references mention specific music videos, such as ""in limbo"", ""india rubber"", ""inside my head"", and many others, but do not provide a comprehensive count."
+"during the 2022-12 season, did  chicago bulls score more total points in games than milwaukee bucks?",sports,comparison,true,"### answer
+according to the references, the chicago bulls and milwaukee bucks played each other on december 28, 2022, with the bulls winning 119-113."
+what are the names of all the movies in the the godfather franchise?,movie,set,"the names of the movies in the the godfather franchise are ""the godfather"", ""the godfather part ii"", and ""the godfather part iii"".","here are the names of all the movies in the godfather franchise:
+
+1. the godfather (1972)
+2. the godfather part ii (1974)
+3. the godfather part iii (1990)
+4. the godfather coda: the death of michael corle"
+how many godzilla movies millie bobby brown has been in,open,aggregation,2,millie bobby brown has been in two godzilla movies: godzilla: king of the monsters (2019) and godzilla vs. kong (2021).
+what movies did emilia clarke play in last 5 years,open,set,"the pod generation, last christmas, above suspicion","according to the references, emilia clarke's movies in the last 5 years are:
+
+1. the pod generation (2023)
+2. murder manual (2020)
+3. the amazing maurice (upcoming, no release year mentioned)
+4. secret invasion ("
+how much does a super bowl ad cost?,sports,simple,~$7 million for 30 seconds of ad time.,"according to the references, the cost of a super bowl ad in 2024 is not specified. however, it is mentioned that cbs sold out all of their super bowl commercial time slots in 2024, and the cost for a 30-second ad was reportedly $7 million."
+"what album did bad bunny release in 2022, which included the songs ""moscow mule"" and ""party""?",music,simple_w_condition,"bad bunny released the album ""un verano sin ti"" in 2022, which included the songs ""moscow mule"" and ""party"".","### answer
+the album ""un verano sin ti"" released by bad bunny in 2022 includes the song ""moscow mule"", but there is no song titled ""party"" in this album."
+when did the current president of the us get married?,open,multi-hop,"the current president of the us, joe biden, got married on june 17, 1977.","grover cleveland, the 22nd and 24th president of the united states, got married in the white house on june 2, 1886."
+"what album did kings of leon release in 2013, which included the songs ""wait for me"" and ""family tree""?",music,simple_w_condition,"kings of leon released the album ""mechanical bull"" in 2013, which included the songs ""wait for me"" and ""family tree"".","the album ""mechanical bull"" by kings of leon, released in 2013, includes the songs ""wait for me"" and ""family tree""."
+what was cj stroud's touchdown to interception ratio in his rookie season?,sports,post-processing,4.6,"according to the references, c.j. stroud's touchdown to interception ratio in his rookie season is 14-1."
+at what age did miley cyrus come out as gender fluid,open,multi-hop,22 years old,"miley cyrus did not come out as gender fluid at a specific age. the references provided do not mention a specific age at which miley cyrus came out as gender fluid. however, according to the references, miley cyrus has talked about her gender identity and has expressed that she is very gender fluid."
+who has more followers? donald trump or joe biden,open,comparison,joe biden,"according to the references, joe biden's campaign account on truth social has more followers than donald trump's campaign account. additionally, biden's average interactions per post are higher than trump's, and he receives more likes and retweets per tweet shared."
+who is the starting small forward for the team that is currently number one in the nba's eastern conference?,sports,multi-hop,"jayson tatum is the starting small forward for the boston celtics, currently the number one in the nba's eastern conference.","based on the given references, the starting small forward for the team that is currently number one in the nba's eastern conference is og anunoby, playing for the toronto raptors."
+which film took longer to produce inside out or coraline?,movie,comparison,"inside out took longer at 5 years, coraline took 4 years.","based on the references provided, coraline took longer to produce than inside out. according to the references, coraline took four years to make, with principal photography alone taking 18 months."
+was tron the first to use computer-generated imagery (cgi) entirely?,movie,false_premise,invalid question,"the first to use computer-generated imagery (cgi) entirely was the movie ""toy story"" (1995), which was the first feature-length film made entirely with cgi animation."
+who wrote the theme song for the movie ghostbusters (1984)?,movie,multi-hop,"ghostbusters was written by ray parker jr., as the theme song to the 1984 film ghostbusters.",ray parker jr. wrote the theme song for the movie ghostbusters (1984).
+who was the first actress to play the role of wonder woman in a live-action movie?,movie,multi-hop,"cathy lee crosby was the first actress to play the role of wonder woman in a live-action movie, in the 1974 film wonder woman.","cathy lee crosby was the first actress to play the role of wonder woman in a live-action movie, in the 1974 made-for-tv movie ""wonder woman""."
+"who is older, will farrell or mark wahlberg?",open,comparison,will farrell is older at the age of 56.,"according to the references, mark wahlberg was born on june 5, 1971. will ferrell's birthdate is not mentioned in the references. therefore, it is not possible to determine who is older between mark wahlberg and will ferrell based on the provided information."
+who was the coach of the team that won the nba championship last season?,sports,multi-hop,"michael malone, who coaches the denver nuggets, was the coach of the team that won the nba championship last season.",there is no information about the coach of the team that won the nba championship last season in the provided references.
+"who is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together""?",music,multi-hop,"taylor swift is the american singer-songwriter who has won 14 grammy awards and is known for her unique blend of country, pop, and rock music, including her hit songs ""you belong with me"" and ""we are never ever getting back together"", which have become chart-topping hits and solidified her status as a pop culture icon.",taylor swift.
+"when was prince, brother of michael jackson, born?",music,false_premise,invalid question,"prince jackson, the son of michael jackson, was born on february 13, 1997."
+what was newcastle utd's score last week?,sports,false_premise,invalid question,there is no information about newcastle utd's score last week in the provided references.
+what percentage of gross for pixar's 2020 movies came from outside the us and canada?,movie,post-processing,74.57%,"unfortunately, the provided references do not contain information about the percentage of gross for pixar's 2020 movies that came from outside the us and canada. the references only provide information about the highest-grossing pixar animated movies in the us and canada as of 2024, but not about the"
+who was the oppinent that denver nuggets faced in 2023-01-11 in a thrilling game?,sports,false_premise,invalid question,there is no information about the denver nuggets facing an opponent on 2023-01-11 in the provided references.
+who was the primary songwriter for the beatles?,music,false_premise,invalid question,"according to the references, john lennon and paul mccartney shared the workload about evenly on only 17 songs, and most beatles songs were written solely by one or the other. lennon wrote 61 songs credited to ""lennon-mccartney"" entirely by himself, and mccartney"
+what was the average gross for all movies in the harry potter series in the uk?,movie,post-processing,"£62,895,676.6","according to the references, the average gross for all movies in the harry potter series in the uk is not explicitly mentioned. however, we can calculate the average gross for the uk box office earnings of each movie:
+
+1. harry potter and the sorcerer's stone: $90,294,62"
+"how many people are casted in the movie ""life of pi""",movie,aggregation,41 cast members,"according to the references, the main cast of the movie ""life of pi"" includes:
+
+1. suraj sharma as pi patel
+2. irrfan khan as adult pi
+3. tabu as pi's mother
+4. gérard depardieu as the cook
+5. adil hussain"
+what year did the simpsons stop airing?,movie,false_premise,invalid question,there is no information in the references about the year when the simpsons stopped airing.
+who are the top three artists with the most monthly listeners on spotify currently?,music,set,"the weeknd, taylor swift, drake","based on the references provided, the top three artists with the most monthly listeners on spotify currently are:
+
+1. the weeknd - 109 million monthly listeners
+2. taylor swift - 97 million monthly listeners
+3. ariana grande - 94 million monthly listeners"
+"who were the lead singers on the album ""dark side of the moon"" by pink floyd?",music,set,"the lead singers on the album ""dark side of the moon"" by pink floyd were roger waters and david gilmour.","the lead singers on pink floyd's album ""dark side of the moon"" are:
+
+* roger waters: ""brain damage"" and ""eclipse""
+* david gilmour: ""breathe"", ""time"", ""money"", and ""us and them""
+* richard wright: ""time"
+"which movie has a higher rotten tomatoes score, the dark knight or the shawshank redemption?",movie,comparison,the shawshank redemption has a higher rotten tomatoes score with 91% compared to the dark knight's 94%.,"### question
+        which movie has a higher rotten tomatoes score, the dark knight or the shawshank redemption?
+
+        ### references 
+        the references provided do not mention the dark knight. they only discuss the shawshank redemption and other films. therefore, it is not possible to determine which"
+who were the stars of living in bondage: breaking free?,movie,set,"ramsey nouah, kanayo o. kanayo, swanky j.k.a., kenneth okonkwo, enyinna nwigwe, shawn faqua, munachi abii, nancy isime, bob-manuel udokwu, ebele okaro-onyiuke, zulu adigwe, ndidi obi","the stars of ""living in bondage: breaking free"" are:
+
+* ramsey nouah
+* enyinna nwigwe
+* kenneth okonkwo
+* kanayo o. kanayo
+* muna abii
+* jide kene achufusi"
+how many games behind from the last playoff spot are the jazz?,sports,post-processing,2.5 games behind,"based on the provided references, it appears that the utah jazz are not currently in the playoffs. the most recent information available indicates that they last made the playoffs in 2022 and missed the playoffs in 2023."
+how much have digital album sales decreased in the us from 2013 to 2019?,music,post-processing,78.7 million less or a -66.7% decrease,"according to the references, cd album sales in the united states have dropped by 95% since peaking in 2000. however, the references do not provide information on digital album sales specifically from 2013 to 2019."
+what is the first song on drake's second album?,music,multi-hop,"over my dead body is the first song on drake's second album, take care.","the first song on drake's second studio album, ""take care"", is not specified in the given references."
+how many actors had roles in both life stinks and city slickers?,movie,aggregation,1,"based on the references provided, there is no information about actors who had roles in both ""life stinks"" and ""city slickers"". the references only mention the casts of the two movies separately, without any overlap."
+how many streams on average for the top two streamed artic monkeys songs on spotify?,music,post-processing,"~1.97 billion steams per song for ""do i wanna know?"" and ""i wanna be yours""","based on the provided references, we can identify the top two streamed arctic monkeys songs on spotify. according to the references, the songs are:
+
+1. ""batphone"" - 2,378,075 streams
+2. ""arabella"" - 2,185,6"

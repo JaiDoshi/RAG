@@ -148,7 +148,7 @@ class RAGModel:
             soup = BeautifulSoup(
                 html_text["page_result"], features="html.parser"
             )
-            text = soup.get_text().replace()
+            text = soup.get_text()
 
             if len(text) > 0:
                 # Convert the text into sentences and extract their offsets.

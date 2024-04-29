@@ -212,7 +212,18 @@ class RAGModel:
              Australia won the ICC world cup in 2023.
              In 2019, England were the winners of the ICC Cricket World Cup.
              ### Answer
-             There is no information about 2024 world cup in the references."""},
+             There is no information about 2024 world cup in the references.
+             
+             Example 3:
+             ### Question
+             How old is the Prime Minister of India?
+             ### References 
+             Narendra Modi is the PM of India.
+             Modi was born in Vadnagar in northeastern Gujarat.
+             Narendra Modi was born on 17 September 1950.
+             ### Answer
+             Prime Minister of India, Narendra Modi is 63 years old. Since, it is April, 2024 currently, and he was born in September 1950, so his age is 63 years old. 
+             """},
             {"role": "user", "content": final_prompt},
         ] 
 
